@@ -49,7 +49,7 @@
 
 /* ---- card groups ---- */
 #standards .panel { --p-h: 300px; }
-@media (max-width: 639px) { #standards .panel { --p-h: 200px; } }
+@media (max-width: 639px) { #standards .panel { --p-h: 168px; } }
 
 /* ---- inner heroes: the lit ground under each window before its effect draws (and without WebGL) ---- */
 .hero__window, .hero__art, .hero__media[data-fx] { background:
@@ -89,13 +89,15 @@
   .ly-collage__set > .ly-piece:nth-child(3) { display: none; }
 }
 
-/* ---- the project catalog (built from src/data/projects.json) ---- */
-#all .panel { --p-h: 280px; }
-@media (max-width: 639px) { #all .panel { --p-h: 200px; } }
-.project-links { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); }
+/* ---- the project screens (built from src/data/projects.json) ---- */
+.project-links { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-5); }
 
 /* ---- a lit hero ground: its focus ring and pause button take the ground's ink, so they show on the sand ---- */
 :is(.hero__window, .hero__art, .hero__media[data-fx], .ly-collage) { --action: var(--ground-ink); }
 .hero--centred .hero__lead { color: var(--ink); }
 .project__head { display: flex; align-items: center; gap: var(--s-3); }
 .project__head .tag { font: 500 var(--t-label)/1 var(--font-mono); padding: 4px 8px; border-radius: 99px; background: color-mix(in oklab, var(--p-accent) 16%, transparent); color: var(--p-accent); }
+:is(.hero__window, .hero__art, .hero__media[data-fx], .ly-collage, .frame--lit) :is(.loop-pause, .ui-pause) { --ink: var(--ground-ink); }
+/* a fragment on a lit frame is a white surface in the ground's ink, as the kit draws UI on its lit grounds */
+.frame--lit { --frag: #ffffff; }
+.project__status { color: var(--p-accent); }

@@ -1,24 +1,24 @@
 <!---
-title: Projects: qsengine and what comes next | qscommons
-description: qsengine is the first qscommons project: a state-vector quantum simulator for Python with a Rust core, up to 30 qubits on any CPU or GPU.
+title: Projects: open quantum tools maintained by qscommons
+description: Every open-source quantum tool qscommons maintains, one screen each, and how a new tool can join the organisation.
 path: /projects/
 current: projects
-head: <link rel="stylesheet" href="{{root}}assets/ui/doc/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/terminal-run/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/checklist/fragment.css"> ; <link rel="modulepreload" href="{{root}}assets/moments/pinned-chapters/moment.js">
+head: <link rel="stylesheet" href="{{root}}assets/ui/doc/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/checklist/fragment.css"> ;  <link rel="modulepreload" href="{{root}}assets/moments/pinned-chapters/moment.js">
 --->
-<!-- plan: hero centred (pill, h1, lead, two buttons, the qsengine docs as one window on the lit frame,
-     effect gradient-mesh); start: pinned-chapters moment, three steps from install to counts (2 screens);
-     all: the catalog, one card per project from src/data/projects.json (1 screen);
-     standard: split-text-left, what a project needs to join, checklist on the lit ground (1 screen); close. -->
+<!-- plan: hero centred (pill and first button from the featured project, the featured project's docs as one
+     window on the lit frame, effect gradient-mesh held still); then one screen per project, built from
+     src/data/projects.json (the project-sections token); join: pinned-chapters moment, how a tool joins in 2 steps
+     (2 screens); close. -->
 
   <section class="hero hero--centred" data-enter aria-labelledby="hero-h">
     <div class="wrap"><div class="hero-text">
       <div class="hero__c">
-        <a class="pill" href="https://qsengine.kaiwave.dev/docs/release-notes/"><span>qsengine 1.1.1 is out</span><span class="muted">Read the release notes</span></a>
-        <h1 id="hero-h">Quantum circuit simulator for Python</h1>
-        <p class="hero__lead">qsengine, our first project, runs your circuits on every CPU core or any GPU, up to 30 qubits, with documentation that starts at bra-ket notation.</p>
-        <div class="btn-row"><a class="btn btn--primary" href="https://qsengine.kaiwave.dev/docs/getting-started/">Get started with qsengine</a><a class="btn btn--secondary" href="https://github.com/qscommons/qsengine">See the source</a></div>
+        <a class="pill" href="{{featured-release-href}}"><span>{{featured-release}}</span><span class="muted">Read the release notes</span></a>
+        <h1 id="hero-h">Quantum tools maintained in public</h1>
+        <p class="hero__lead">Each one is MIT licensed, tested against an independent reference and documented with real output. qsengine is the first of them.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="#qsengine">See the projects</a><a class="btn btn--secondary" href="#join">Propose a project</a></div>
       </div>
-      <div class="hero__window" data-fx="gradient-mesh" data-fx-seed="11" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#5a534a","accent":"#a8794a"}' role="img" aria-label="The qsengine documentation page on entanglement, with the Bell state's formula marked">
+      <div class="hero__window" data-fx="gradient-mesh" data-fx-seed="11" data-fx-params='{"speed":0}' data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#5a534a","accent":"#a8794a"}' role="img" aria-label="The qsengine documentation page on entanglement, with the Bell state's formula marked">
         <div class="ly-piece" aria-hidden="true">
           <div class="ui ui-doc" data-ui="doc">
             <article class="ui-doc__page">
@@ -40,90 +40,44 @@ head: <link rel="stylesheet" href="{{root}}assets/ui/doc/fragment.css"> ; <link 
     </div></div>
   </section>
 
-  <section class="section" id="start" data-moment="pinned-chapters" aria-labelledby="start-h">
+{{project-sections}}
+
+  <section class="section" id="join" data-moment="pinned-chapters" aria-labelledby="join-h">
     <div class="wrap mo-pc__grid">
       <div class="mo-pc__text">
-        <h2 id="start-h">Your first counts in 3 steps</h2>
+        <h2 id="join-h">How a quantum tool joins in 2 steps</h2>
         <ol class="mo-pc__steps">
           <li class="mo-pc__step">
-            <h3>Install it with 1 command</h3><p>pip installs qsengine and NumPy for CPython 3.9 and newer. There is nothing to compile.</p>
-            <figure class="mo-pc__visual">
-              <div class="ui ui-panel ui-term" data-ui="terminal-run" role="img" aria-label="A terminal installing qsengine 1.1.1 with pip">
-                <div class="ui-term__head"><span class="ui-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="ui-term__title">~/research</span><span class="ui-meta">zsh</span><span class="ui-spacer"></span></div>
-                <div class="ui-term__screen" data-term-screen><div class="ui-term__track" data-term-track>
-                  <div class="ui-term__ln ui-term__cmd"><span class="ui-term__cwd">~/research</span><span class="ui-term__sig">$</span><span class="ui-term__typed" data-term-cmd>pip install qsengine</span></div>
-                  <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">qsengine-1.1.1</span><span class="ui-term__n">wheel</span><span class="ui-term__t">installed</span></div>
-                  <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">numpy</span><span class="ui-term__n">dependency</span><span class="ui-term__t">installed</span></div>
-                  <div class="ui-term__ln ui-term__done" data-term-out data-term-done><span class="ui-term__ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.3 2.4 2.4 4.6-5"/></svg></span><b>Done</b><span class="ui-term__dim">ready to import</span></div>
-                  <div class="ui-term__ln ui-term__cmd" data-term-next><span class="ui-term__cwd">~/research</span><span class="ui-term__sig">$</span><span class="ui-term__typed"></span><i class="ui-term__caret" aria-hidden="true"></i></div>
-                </div></div>
+            <h3>Propose the quantum tool</h3><p>Open an issue that says what the tool does, who it is for and what reference you test it against.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit">
+              <div class="ui ui-panel ui-checks" data-ui="checklist" role="img" aria-label="What a proposal says: what the tool does, who it is for, its reference and its maintainer">
+                <div class="ui-checks__head"><div class="ui-title">A proposal says</div><span class="ui-spacer"></span><div class="ui-meta" data-checks-count>4 of 4</div></div>
+                <div class="ui-checks__bar"><i data-checks-bar style="--k:1"></i></div>
+                <ul class="ui-checks__list">
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">What the tool does</span></li>
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Who it is for</span></li>
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Its reference to test against</span></li>
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Who will maintain it</span></li>
+                </ul>
               </div>
             </figure>
           </li>
           <li class="mo-pc__step">
-            <h3>Build a 2-qubit circuit</h3><p>A circuit has a fixed number of qubits. Add gates as method calls; nothing runs yet.</p>
-            <figure class="mo-pc__visual">
-              <div class="ui ui-panel ui-code" data-ui="code" role="img" aria-label="Python code that builds a two-qubit Bell-state circuit">
-                <div class="ui-code__tabs"><span class="ui-code__tab is-on"><i class="ui-code__lang">PY</i>bell.py</span><span class="ui-spacer"></span><span class="ui-chip ui-chip--plain ui-code__chip" data-code-chip>2 gates</span></div>
-                <pre class="ui-code__pre"><code><span class="ui-code__ln" data-n="1"><span class="k">import</span> qsengine</span>
-<span class="ui-code__ln" data-n="2"></span>
-<span class="ui-code__ln" data-n="3">qc = qsengine.<span class="f">QuantumCircuit</span>(<span class="n">2</span>)</span>
-<span class="ui-code__ln is-mark" data-n="4">qc.<span class="f">h</span>(<span class="n">0</span>)</span>
-<span class="ui-code__ln" data-n="5">qc.<span class="f">cx</span>(<span class="n">0</span>, <span class="n">1</span>)</span></code></pre>
-                <div class="ui-code__hint" data-code-hint><span class="ui-dot"></span><span data-code-text>A Hadamard, then a CNOT: a Bell state.</span></div>
-              </div>
-            </figure>
-          </li>
-          <li class="mo-pc__step">
-            <h3>Run it 1000 times</h3><p>run() simulates once, measures 1000 times and returns how often each bitstring came up.</p>
-            <figure class="mo-pc__visual">
-              <div class="ui ui-panel ui-code" data-ui="code" role="img" aria-label="Running the circuit 1000 times prints 513 counts of 00 and 487 of 11">
-                <div class="ui-code__tabs"><span class="ui-code__tab is-on"><i class="ui-code__lang">PY</i>bell.py</span><span class="ui-spacer"></span><span class="ui-chip ui-chip--plain ui-code__chip" data-code-chip>1000 shots</span></div>
-                <pre class="ui-code__pre"><code><span class="ui-code__ln" data-n="6">counts = qc.<span class="f">run</span>(shots=<span class="n">1000</span>, seed=<span class="n">1</span>)</span>
-<span class="ui-code__ln is-mark" data-n="7"><span class="f">print</span>(counts)</span>
-<span class="ui-code__ln" data-n="8"><span class="c"># {'00': 513, '11': 487}</span></span></code></pre>
-                <div class="ui-code__hint" data-code-hint><span class="ui-dot"></span><span data-code-text>Only 00 and 11: the two qubits always agree.</span></div>
+            <h3>Meet the 4 standards</h3><p>MIT licence, a one-line install, tests against a reference and docs that print real output.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit">
+              <div class="ui ui-doc" data-ui="doc" role="img" aria-label="The qscommons standard for a new tool, with the reference tests marked">
+                <article class="ui-doc__page">
+                  <div class="ui-doc__label">qscommons · Joining</div>
+                  <div class="ui-doc__title">What a new tool needs</div>
+                  <div class="ui-doc__text">It is released under the MIT licence and installs with one command.</div>
+                  <div class="ui-doc__text">Its results are <mark class="ui-doc__mark is-on">tested against an independent reference</mark>, the way qsengine checks every gate against NumPy.</div>
+                  <div class="ui-doc__text">Its documentation prints real output, and changes in the same pull request as the code.</div>
+                </article>
               </div>
             </figure>
           </li>
         </ol>
       </div>
       <div class="mo-pc__visuals frame"></div>
-    </div>
-  </section>
-
-  <section class="section" id="all" aria-labelledby="all-h">
-    <div class="wrap">
-      <div class="section-head"><h2 id="all-h">Every quantum tool qscommons maintains</h2></div>
-      <div class="grid">
-{{project-cards}}
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="standard" aria-labelledby="standard-h">
-    <div class="wrap">
-      <div class="grid grid--top fill">
-        <div class="span-5 stack-6">
-          <h2 id="standard-h">What a new quantum tool needs to join</h2>
-          <p class="t-lead">A tool joins qscommons when it holds to the same standard as qsengine. Propose one with an issue that says what it does and who it is for.</p>
-          <p><a class="link" href="https://github.com/qscommons/qsengine/issues">Propose a project on GitHub</a></p>
-        </div>
-        <div class="frame frame--split frame--lit frame--fill span-6 start-7">
-          <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:340px;--ax:max(40px, 50% - 170px);--ay:56px;--ay-sm:24px" data-ui-loop>
-            <div class="ui ui-panel ui-checks" data-ui="checklist">
-              <div class="ui-checks__head"><div class="ui-title">Joining qscommons</div><span class="ui-spacer"></span><div class="ui-meta" data-checks-count>2 of 5</div></div>
-              <div class="ui-checks__bar"><i data-checks-bar style="--k:0.4"></i></div>
-              <ul class="ui-checks__list">
-                <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">MIT licence</span></li>
-                <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">One-line install</span></li>
-                <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Tests against a reference</span></li>
-                <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Docs with real output</span></li>
-                <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">A named maintainer</span></li>
-              </ul>
-            </div>
-          </div></div>
-        </div>
-      </div>
     </div>
   </section>

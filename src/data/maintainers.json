@@ -1,0 +1,11 @@
+{
+  "_about": "Everyone who maintains qscommons, in the order the site names them. The home page's maintainers section and the About page's lead are built from this list, so adding a person here updates both. email is optional: leave it empty to keep it off the site.",
+  "maintainers": [
+    {
+      "nickname": "kaiwave",
+      "github": "kaiwave",
+      "email": "",
+      "role": "who started qscommons as a home for qsengine"
+    }
+  ]
+}

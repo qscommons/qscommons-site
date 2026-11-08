@@ -6,7 +6,7 @@ current: home
 head: <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/window/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/terminal-run/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/stat/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/checklist/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/toggles/fragment.css"> ; <link rel="modulepreload" href="{{root}}assets/moments/line-carries-colour/moment.js">
 --->
 <!-- plan (1440x900 screens)
-  hero        triptych: the h1, a collage of qsengine's real code, output, docs and benchmarks on the page's
+  hero        triptych: the h1, a collage of qsengine's real code and output (one set, held still) on the page's
               one effect (grain-gradient), the main button. 1 screen. kind: object (qsengine at work)
   qsengine    app-frame: the example list beside the open Bell-state program. 1 screen. kind: object
   standards   features-2x2 (g2): tests vs NumPy (terminal loop), GPU speed (stat), backend choice (lanes
@@ -22,7 +22,7 @@ head: <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css"> ; <link
         <h1 id="hero-h">Open quantum tools for Python</h1>
         <p class="hero__lead">MIT-licensed software for quantum computing research. qsengine runs 22 qubits in 77 ms on a GPU.</p>
       </div>
-      <div class="ly-collage span-6 start-4" data-fx="grain-gradient" data-fx-seed="7" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#5a534a","accent":"#a8794a"}'  role="img" aria-label="qsengine at work: a Bell-state program and its counts, a documentation page on the Bloch sphere, a circuit drawing and the 22-qubit benchmark">
+      <div class="ly-collage span-6 start-4" data-fx="grain-gradient" data-fx-seed="7" data-fx-params='{"speed":0.2}' data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#5a534a","accent":"#a8794a"}'  role="img" aria-label="qsengine at work: a Bell-state program and its counts, a documentation page on the Bloch sphere, a circuit drawing and the 22-qubit benchmark">
         <div class="ly-collage__set is-on">
           <div class="ly-piece" style="left: 4%; top: 6%; width: 60%">
             <div class="pc-head"><b>bell.py</b><span>python</span></div>
@@ -45,38 +45,6 @@ head: <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css"> ; <link
             <div class="pc-head"><b>zsh</b></div>
             <div class="pc-body"><span><span class="c">$</span> pip install qsengine</span>
 <span><span class="c">Installed</span> qsengine-1.1.1</span></div>
-          </div>
-        </div>
-        <div class="ly-collage__set" aria-hidden="true">
-          <div class="ly-piece" style="left: 4%; top: 6%; width: 56%">
-            <div class="pc-doc">
-              <h4>The Bloch sphere</h4>
-              <p>One qubit is a point on a sphere, and every gate turns it.</p>
-              <div class="pc-math">|ψ⟩ = cos(θ/2)|0⟩ + e^(iφ) sin(θ/2)|1⟩</div>
-            </div>
-          </div>
-          <div class="ly-piece" style="left: 30%; top: 54%; width: 66%; height: 42%">
-            <div class="pc-head"><b>print(qc)</b><span>teleport.py</span></div>
-            <div class="pc-body"><span>q0: ──RY(2.00)───●──H──M→c0</span>
-<span>q1: ────────H──●──X─────M→c1</span>
-<span>q2: ───────────X──────X if c1=1</span></div>
-          </div>
-        </div>
-        <div class="ly-collage__set" aria-hidden="true">
-          <div class="ly-piece" style="left: 4%; top: 6%; width: 64%">
-            <div class="pc-head"><b>22 qubits</b><span>1000 shots, best of 3</span></div>
-            <div class="pc-rows">
-              <div><span>Simulator</span><span>Time</span><span>Precision</span></div>
-              <div class="is-top"><span>qsengine GPU</span><span>77 ms</span><span>32-bit</span></div>
-              <div><span>Qiskit Aer</span><span>431 ms</span><span>64-bit</span></div>
-              <div><span>qsengine CPU</span><span>1.17 s</span><span>64-bit</span></div>
-            </div>
-          </div>
-          <div class="ly-piece" style="left: 44%; top: 56%; width: 52%; height: 40%">
-            <div class="pc-head"><b>backends</b></div>
-            <div class="pc-body"><span>qc.<span class="f">run</span>(backend=<span class="n">"auto"</span>)</span>
-<span><span class="c">#</span> GPU from 14 qubits,</span>
-<span><span class="c">#</span> else every CPU core</span></div>
           </div>
         </div>
       </div>
@@ -179,7 +147,7 @@ head: <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css"> ; <link
             <h3>Checks results against NumPy</h3>
             <p>Each gate and random circuit is compared with a plain NumPy reference simulator, on the CPU and the GPU.</p>
             <div class="panel panel--flush">
-              <div class="stage"><div class="at-rise fit" style="--fit-max:440px;--ax:max(32px, 50% - 220px);--ay:36px;--ay-sm:24px" data-ui-loop>
+              <div class="stage"><div class="at-rise fit" style="--fit-max:440px;--ax:max(32px, 50% - 220px);--ay:36px;--ay-sm:24px">
                 <div class="ui ui-panel ui-term" data-ui="terminal-run">
                   <div class="ui-term__head">
                     <span class="ui-dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -312,11 +280,11 @@ head: <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css"> ; <link
       <div class="grid grid--top fill">
         <div class="span-5 stack-4">
           <h2 id="people-h">qscommons maintainers and contributors</h2>
-          <p>One maintainer today: kaiwave, who started qscommons to give qsengine a home bigger than a personal project. Every change is reviewed in public on GitHub, open to anyone.</p>
+          <p>{{maintainers-line}} Every change is reviewed in public on GitHub, open to anyone.</p>
           <p><a class="link" href="{{root}}about/">Read why qscommons exists</a></p>
         </div>
         <div class="frame frame--split frame--fill span-6 start-7">
-          <div class="dg" data-diagram><script type="application/json">{"layout": "hub", "alt": "qscommons holds qsengine, with its docs and PyPI wheels, the qsengine website, built daily, and its GitHub issues and pull requests.", "center": {"label": "qscommons", "icon": "text:qs"}, "spokes": [{"label": "qsengine", "icon": "si:rust", "children": [{"label": "Docs", "icon": "ui:file-text"}, {"label": "Wheels", "icon": "si:pypi"}]}, {"label": "Website", "icon": "ui:globe", "children": [{"label": "Daily build", "icon": "ui:refresh-cw"}]}, {"label": "GitHub", "icon": "si:github", "children": [{"label": "Issues", "icon": "ui:message-square"}, {"label": "Pull requests", "icon": "ui:git-branch"}]}]}</script></div>
+          <div class="dg" data-dg-still data-diagram><script type="application/json">{"layout": "hub", "alt": "qscommons holds qsengine, with its docs and PyPI wheels, the qsengine website, built daily, and its GitHub issues and pull requests.", "center": {"label": "qscommons", "icon": "text:qs"}, "spokes": [{"label": "qsengine", "icon": "si:rust", "children": [{"label": "Docs", "icon": "ui:file-text"}, {"label": "Wheels", "icon": "si:pypi"}]}, {"label": "Website", "icon": "ui:globe", "children": [{"label": "Daily build", "icon": "ui:refresh-cw"}]}, {"label": "GitHub", "icon": "si:github", "children": [{"label": "Issues", "icon": "ui:message-square"}, {"label": "Pull requests", "icon": "ui:git-branch"}]}]}</script></div>
         </div>
       </div>
     </div>

@@ -14,10 +14,10 @@ head: <link rel="stylesheet" href="{{root}}assets/ui/diff-review/fragment.css"> 
       <div class="hero__text span-5">
         <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Five qsengine releases in 2026</p>
         <h1 id="hero-h">A home for open quantum software</h1>
-        <p class="hero__lead">qscommons maintains MIT-licensed tools for quantum computing, each tested against a reference and documented with real output. One maintainer runs it today.</p>
+        <p class="hero__lead">qscommons maintains MIT-licensed tools for quantum computing, each tested against a reference and documented with real output. {{maintainers-sentence}}</p>
         <div class="btn-row"><a class="btn btn--primary" href="{{root}}projects/">See the projects</a><a class="btn btn--secondary" href="#mission">Read the mission</a></div>
       </div>
-      <div class="hero__media span-6 start-7" data-fx="fluted-glass" data-fx-seed="12" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#5a534a","accent":"#a8794a"}' role="img" aria-label="qsengine pull request 24: unitary() now records the nearest exact unitary matrix, with a review comment">
+      <div class="hero__media span-6 start-7" data-fx="fluted-glass" data-fx-seed="12" data-fx-params='{"speed":0}' data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#5a534a","accent":"#a8794a"}' role="img" aria-label="qsengine pull request 24: unitary() now records the nearest exact unitary matrix, with a review comment">
         <div class="stage stage--fade-b"><div class="at-corner to-edge" style="--ax:40px;--ay:40px" aria-hidden="true">
           <div class="ui ui-panel ui-diff" data-ui="diff-review">
             <div class="ui-diff__head">
@@ -66,7 +66,7 @@ head: <link rel="stylesheet" href="{{root}}assets/ui/diff-review/fragment.css"> 
     </div></div>
   </section>
 
-  <section class="section" id="mission" aria-labelledby="mission-h">
+  <section class="section" id="mission" style="--hm: 2" aria-labelledby="mission-h">
     <div class="wrap">
       <div class="grid grid--top fill">
         <div class="span-5 stack-6">
@@ -82,7 +82,7 @@ head: <link rel="stylesheet" href="{{root}}assets/ui/diff-review/fragment.css"> 
                 <div class="ui-doc__label">qsengine docs · Release notes</div>
                 <div class="ui-doc__title">Version 1.1.0</div>
                 <div class="ui-doc__text">QuantumCircuit(num_qubits, num_clbits) gives a circuit classical bits.</div>
-                <div class="ui-doc__text"><mark class="ui-doc__mark is-on">measure(qubit, clbit) measures a qubit at any point</mark>, and reset(qubit) returns it to |0⟩.</div>
+                <div class="ui-doc__text"><mark class="ui-doc__mark is-on">measure() reads a qubit at any point</mark>, and reset() returns it to |0⟩.</div>
                 <div class="ui-doc__text">Gates inside with qc.if_test(clbits, value): run only when the classical bits match.</div>
                 <div class="ui-doc__text">expectation("ZZI") returns the expectation value of a Pauli string.</div>
                 <div class="ui-doc__text">Recording a gate is about 2.3 times faster than in 1.0.2.</div>

@@ -67,21 +67,58 @@ function projectsFooter() {
     ...projects.map((p) => `<li><a href="${(p.links.find((l) => l.label === "Source") || p.links[0]).href}">${esc(p.name)}</a></li>`)].join("");
 }
 
-// One card per project for the Projects page's catalog.
-function projectCards() {
-  return projects.map((p) => `<article class="card card--row span-6 m-nolift" id="${esc(p.id)}">
-  <div class="project__head"><h3>${esc(p.name)}</h3><span class="tag">${esc(p.status)}${p.version ? ` · ${esc(p.version)}` : ""}</span></div>
-  <p>${esc(p.tagline)} ${esc(p.summary)}</p>
-  <p class="project-links">${p.links.map((l) => `<a class="link" href="${l.href}">${esc(l.label)}</a>`).join(" ")}</p>
-  <div class="panel panel--flush">
-    <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:400px;--ax:max(32px, 50% - 200px);--ay:32px;--ay-sm:20px">
+// One screen per project on the Projects page: the words on the left, its example as a code window on
+// the lit ground on the right (sections-library.md, split-text-left).
+function projectSections() {
+  return projects.map((p) => `<section class="section" id="${esc(p.id)}" style="--hm: 2" aria-labelledby="${esc(p.id)}-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-5 stack-6">
+          <p class="t-label project__status">${esc(p.status)}${p.version ? ` · version ${esc(p.version)}` : ""}</p>
+          <h2 id="${esc(p.id)}-h">${esc(p.heading || p.name)}</h2>
+          <p class="t-lead">${esc(p.summary)}</p>
+          <p class="project__facts">${(p.facts || []).map(esc).join(" · ")}</p>
+          <p class="project-links">${p.start ? `<a class="btn btn--secondary" href="${p.start.href}">${esc(p.start.label)}</a> ` : ""}${p.links.map((l) => `<a class="link" href="${l.href}">${esc(l.label)}</a>`).join(" ")}</p>
+        </div>
+        <div class="frame frame--split frame--lit frame--fill span-6 start-7">
+          <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:440px;--ax:max(40px, 50% - 220px);--ay:56px;--ay-sm:24px">
 ${codeFragment({ ...p.example, hint: p.example.note })}
-    </div></div>
-  </div>
-</article>`).join("\n");
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>`).join("\n\n");
 }
 
-const generated = { "projects-menu": projectsMenu(), "projects-footer": projectsFooter(), "project-cards": projectCards() };
+// ---- the maintainers, from src/data/maintainers.json (one entry per person) ----
+const { maintainers } = JSON.parse(read("src/data/maintainers.json"));
+const NUMBERS = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
+const count = (n) => NUMBERS[n] || String(n);
+// "kaiwave, who started ...": each person linked to their GitHub, an email only when one is given
+function maintainersList() {
+  const one = (m) => {
+    const name = `<a class="link" href="https://github.com/${esc(m.github)}">${esc(m.nickname)}</a>`;
+    const mail = m.email ? ` (<a class="link" href="mailto:${esc(m.email)}">${esc(m.email)}</a>)` : "";
+    return `${name}${mail}${m.role ? `, ${esc(m.role)}` : ""}`;
+  };
+  const items = maintainers.map(one);
+  return items.length > 1 ? `${items.slice(0, -1).join("; ")}; and ${items.at(-1)}` : items[0] || "";
+}
+const n = maintainers.length;
+
+const generated = {
+  "projects-menu": projectsMenu(),
+  "projects-footer": projectsFooter(),
+  "project-sections": projectSections(),
+  "featured-start-label": esc(featured.start ? featured.start.label : featured.name),
+  "featured-start-href": featured.start ? featured.start.href : `{{root}}projects/#${featured.id}`,
+  "featured-release": esc(featured.release ? `${featured.release.title} is out` : featured.name),
+  "featured-release-href": featured.release ? featured.release.href : `{{root}}projects/#${featured.id}`,
+  // "One maintainer today: kaiwave, who started ..."
+  "maintainers-line": `${count(n)} maintainer${n === 1 ? "" : "s"} today: ${maintainersList()}.`,
+  // "One maintainer runs it today."
+  "maintainers-sentence": `${count(n)} maintainer${n === 1 ? " runs" : "s run"} it today.`,
+};
 
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
