@@ -1,0 +1,150 @@
+<!---
+title: Contribute to qscommons: issues, tests and docs
+description: How to contribute to qscommons projects: report a bug, run the tests, fix a gate or improve a page of the docs, all reviewed in public on GitHub.
+path: /get-involved/
+current: community
+head: <link rel="stylesheet" href="{{root}}assets/ui/window/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/terminal-run/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/checklist/fragment.css"> ; <link rel="modulepreload" href="{{root}}assets/moments/iris-opens/moment.js">
+--->
+<!-- plan: hero collage (text, qsengine's merged pull requests as one window on the lit ground, effect
+     painterly-landscape, a small card with the release they shipped in); steps: three cards, issue, tests,
+     docs (1 screen); gate: iris-opens moment on the inverse ground, the seven places a new gate touches
+     (1 screen); close. -->
+
+  <section class="hero hero--collage" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <h1 id="hero-h">Contribute to open quantum software</h1>
+        <p class="hero__lead">Report a bug, add a gate or make a page of the docs clearer. Every change to qsengine is reviewed in public on GitHub.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="https://github.com/qscommons/qsengine/issues">See open issues</a><a class="btn btn--secondary" href="https://github.com/qscommons/qsengine/blob/main/CONTRIBUTING.md">Read the guide</a></div>
+        <p class="hero__proof">Bug reports, examples, docs fixes and new gates are all welcome.</p>
+      </div>
+      <div class="hero__art span-6 start-7" data-fx="painterly-landscape" data-fx-seed="13" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#5a534a","accent":"#a8794a"}' role="img" aria-label="qsengine's recent pull requests on GitHub, all merged, and the release they shipped in">
+        <div class="ly-piece ly-piece--main" aria-hidden="true">
+          <div class="ui ui-panel ui-win" data-ui="window" data-open="Open" data-work="Review" data-done="Merged">
+            <div class="ui-win__bar">
+              <span class="ui-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="ui-win__crumb"><img class="ui-brand" data-icon="si:github" src="{{root}}assets/icons/github.svg" alt="">qscommons/qsengine <i>/</i> <b>Pull requests</b></span>
+              <span class="ui-spacer"></span>
+            </div>
+            <div class="ui-win__body">
+              <nav class="ui-win__side" aria-hidden="true">
+                <span class="ui-win__nav is-on">Pull requests</span>
+                <span class="ui-win__nav">Issues</span>
+                <span class="ui-win__nav">Releases<em>5</em></span>
+              </nav>
+              <div class="ui-win__main">
+                <div class="ui-win__cols" aria-hidden="true"><span>Author</span><span>Pull request</span><span>Status</span><span>No.</span></div>
+                <ul class="ui-win__rows">
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="4">KW</span><span class="ui-win__who">kaiwave</span><span class="ui-win__sub">Update GitHub URL references for qscommons</span><span class="ui-win__st is-done" data-st>Merged</span><span class="ui-win__age">#27</span></li>
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="4">KW</span><span class="ui-win__who">kaiwave</span><span class="ui-win__sub">Move docs to a folder of plain .md</span><span class="ui-win__st is-done" data-st>Merged</span><span class="ui-win__age">#26</span></li>
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="4">KW</span><span class="ui-win__who">kaiwave</span><span class="ui-win__sub">Project nearly-unitary matrices onto the closest unitary</span><span class="ui-win__st is-done" data-st>Merged</span><span class="ui-win__age">#24</span></li>
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="4">KW</span><span class="ui-win__who">kaiwave</span><span class="ui-win__sub">Accept NumPy integers in measure() and if_test()</span><span class="ui-win__st is-done" data-st>Merged</span><span class="ui-win__age">#23</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ly-piece ly-piece--note d-card" aria-hidden="true">
+          <div class="d-card__row"><h5>qsengine 1.1.1</h5><span class="d-chip">Released</span></div>
+          <div class="d-note__line"><i>✓</i><span><b>#23</b> NumPy integers as indices</span></div>
+          <div class="d-note__line"><i>✓</i><span><b>#24</b> nearest exact unitary</span></div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="ways" aria-labelledby="ways-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="ways-h">Contribute in 3 steps</h2></div>
+      <div class="grid">
+        <article class="card card--row span-4 m-nolift">
+          <span class="step-num">1</span>
+          <h3>Open an issue first</h3>
+          <p>For anything larger than a small fix, agree on the shape before you write the code.</p>
+          <div class="panel panel--flush">
+            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:340px;--ax:max(24px, 50% - 170px);--ay:32px;--ay-sm:20px" data-ui-loop>
+              <div class="ui ui-panel ui-checks" data-ui="checklist">
+                <div class="ui-checks__head"><div class="ui-title">A useful bug report</div><span class="ui-spacer"></span><div class="ui-meta" data-checks-count>1 of 4</div></div>
+                <div class="ui-checks__bar"><i data-checks-bar style="--k:0.25"></i></div>
+                <ul class="ui-checks__list">
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">qsengine version</span></li>
+                  <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">The shortest circuit</span></li>
+                  <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">What you expected</span></li>
+                  <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">What it printed</span></li>
+                </ul>
+              </div>
+            </div></div>
+          </div>
+        </article>
+        <article class="card card--row span-4 m-nolift">
+          <span class="step-num">2</span>
+          <h3>Run every check</h3>
+          <p>Rust tests, clippy and the Python suite, which compares results with NumPy.</p>
+          <div class="panel panel--flush">
+            <div class="stage"><div class="at-rise fit" style="--fit-max:440px;--ax:max(24px, 50% - 220px);--ay:32px;--ay-sm:20px">
+              <div class="ui ui-panel ui-term" data-ui="terminal-run">
+                <div class="ui-term__head"><span class="ui-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="ui-term__title">qsengine</span><span class="ui-meta">zsh</span><span class="ui-spacer"></span></div>
+                <div class="ui-term__screen" data-term-screen><div class="ui-term__track" data-term-track>
+                  <div class="ui-term__ln ui-term__cmd"><span class="ui-term__cwd">~/qsengine</span><span class="ui-term__sig">$</span><span class="ui-term__typed" data-term-cmd>cargo test --release</span></div>
+                  <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">all_gates_are_unitary</span><span class="ui-term__n">gates</span><span class="ui-term__t">ok</span></div>
+                  <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">matches_cpu_on_random_circuit</span><span class="ui-term__n">gpu</span><span class="ui-term__t">ok</span></div>
+                  <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">teleportation_moves_a_one</span><span class="ui-term__n">circuit</span><span class="ui-term__t">ok</span></div>
+                  <div class="ui-term__ln ui-term__done" data-term-out data-term-done><span class="ui-term__ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.3 2.4 2.4 4.6-5"/></svg></span><b>Done</b><span class="ui-term__dim">then pytest</span></div>
+                  <div class="ui-term__ln ui-term__cmd" data-term-next><span class="ui-term__cwd">~/qsengine</span><span class="ui-term__sig">$</span><span class="ui-term__typed"></span><i class="ui-term__caret" aria-hidden="true"></i></div>
+                </div></div>
+              </div>
+            </div></div>
+          </div>
+        </article>
+        <article class="card card--row span-4 m-nolift">
+          <span class="step-num">3</span>
+          <h3>Update the docs</h3>
+          <p>Docs are Markdown in the same repository, so a change and its page go in one pull request.</p>
+          <div class="panel panel--flush">
+            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:400px;--ax:max(24px, 50% - 200px);--ay:32px;--ay-sm:20px">
+              <div class="ui ui-panel ui-code" data-ui="code">
+                <div class="ui-code__tabs"><span class="ui-code__tab is-on"><i class="ui-code__lang">MD</i>docs/gates.md</span><span class="ui-spacer"></span><span class="ui-chip ui-chip--plain ui-code__chip" data-code-chip>1 page</span></div>
+                <pre class="ui-code__pre"><code><span class="ui-code__ln" data-n="1"><span class="k"># Gates</span></span>
+<span class="ui-code__ln" data-n="2"></span>
+<span class="ui-code__ln is-mark" data-n="3">qsengine has nineteen named gates,</span>
+<span class="ui-code__ln" data-n="4">and <span class="f">`unitary()`</span> for any other.</span>
+<span class="ui-code__ln" data-n="5"></span>
+<span class="ui-code__ln" data-n="6"><span class="k">## Single-qubit gates</span></span></code></pre>
+                <div class="ui-code__hint" data-code-hint><span class="ui-dot"></span><span data-code-text>The site rebuilds from this file daily.</span></div>
+              </div>
+            </div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ground-inverse" id="new-gate" data-moment="iris-opens" aria-labelledby="new-gate-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-5 stack-6">
+          <h2 id="new-gate-h">Adding a gate touches 7 files</h2>
+          <p class="t-lead">The contributing guide walks through each one, from the matrix in Rust to the docs page.</p>
+          <p>A gate made only of existing 2x2 matrices and controls needs no backend or shader changes: every backend runs every gate through one kernel.</p>
+          <p><a class="link" href="https://github.com/qscommons/qsengine/blob/main/CONTRIBUTING.md#adding-a-gate">Read how to add a gate</a></p>
+        </div>
+        <div class="frame frame--split frame--fill span-6 start-7">
+          <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:340px;--ax:max(40px, 50% - 170px);--ay:56px;--ay-sm:24px">
+            <div class="ui ui-panel ui-checks" data-ui="checklist">
+              <div class="ui-checks__head"><div class="ui-title">A new gate</div><span class="ui-spacer"></span><div class="ui-meta" data-checks-count>3 of 7</div></div>
+              <div class="ui-checks__bar"><i data-checks-bar style="--k:0.43"></i></div>
+              <ul class="ui-checks__list">
+                <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">src/gates.rs</span></li>
+                <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">src/circuit.rs</span></li>
+                <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">src/python.rs</span></li>
+                <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">_core.pyi</span></li>
+                <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">_drawer.py</span></li>
+                <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">tests/test_circuit.py</span></li>
+                <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">docs/gates.md</span></li>
+              </ul>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>

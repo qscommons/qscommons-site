@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+.DS_Store
+.claude/
+# taste-skill scratch: headless Chrome profiles, check output, the replaced Next.js draft
+.taste-skill/chrome-*/
+.taste-skill/old-draft/
+.taste-skill/cons-*.txt

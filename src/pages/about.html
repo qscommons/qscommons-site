@@ -1,0 +1,107 @@
+<!---
+title: About qscommons: who maintains it and why
+description: Why qscommons exists, the standard every project holds to, and who maintains it today: one person, working in public on GitHub.
+path: /about/
+current: about
+head: <link rel="stylesheet" href="{{root}}assets/ui/diff-review/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/doc/fragment.css"> ; <link rel="modulepreload" href="{{root}}assets/moments/word-highlight/moment.js">
+--->
+<!-- plan: hero split (text, the real diff of qsengine pull request #24 on the lit ground, effect fluted-glass,
+     a float card); mission: split-text-left beside the 1.1.0 release notes as a doc page (1 screen);
+     statement: word-highlight moment (1 screen); close. -->
+
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Five qsengine releases in 2026</p>
+        <h1 id="hero-h">A home for open quantum software</h1>
+        <p class="hero__lead">qscommons maintains MIT-licensed tools for quantum computing, each tested against a reference and documented with real output. One maintainer runs it today.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="{{root}}projects/">See the projects</a><a class="btn btn--secondary" href="#mission">Read the mission</a></div>
+      </div>
+      <div class="hero__media span-6 start-7" data-fx="fluted-glass" data-fx-seed="12" data-fx-palette='{"bg":"#d9ccb7","surface":"#e9e0d2","ink":"#2a2622","muted":"#5a534a","accent":"#a8794a"}' role="img" aria-label="qsengine pull request 24: unitary() now records the nearest exact unitary matrix, with a review comment">
+        <div class="stage stage--fade-b"><div class="at-corner to-edge" style="--ax:40px;--ay:40px" aria-hidden="true">
+          <div class="ui ui-panel ui-diff" data-ui="diff-review">
+            <div class="ui-diff__head">
+              <svg class="ui-icon ui-diff__fold" viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 6.25 3.5 3.5 3.5-3.5"/></svg>
+              <span class="ui-diff__tool" aria-hidden="true"><img data-icon="si:rust" src="{{root}}assets/icons/rust.svg" alt=""></span>
+              <span class="ui-diff__repo">qscommons/qsengine</span><i class="ui-diff__slash" aria-hidden="true">/</i>
+              <span class="ui-diff__path"><span class="ui-diff__dir">src/</span><b>circuit.rs</b></span>
+              <span class="ui-spacer"></span>
+              <span class="ui-diff__stat"><b class="is-add"><span class="ui-diff__was">+3</span><span class="ui-diff__now">+4</span></b><b class="is-del"><span class="ui-diff__was">&minus;2</span><span class="ui-diff__now">&minus;2</span></b><span class="ui-diff__bar" aria-hidden="true"><i class="is-add"></i><i class="is-add"></i><i class="is-add"></i><i class="is-del"></i><i class="is-del"></i></span></span>
+            </div>
+            <div class="ui-diff__hunk"><span>@@ -139,13 +139,15 @@</span> <em class="ui-diff__sig">impl QuantumCircuit {</em></div>
+            <div class="ui-diff__lines">
+              <div class="ui-diff__ln is-del"><i>142</i><i></i><span class="ui-diff__code" data-i="1"><span class="ui-diff__ind">  </span><span class="c">/// Record a 2x2 gate if it is unitary.</span></span></div>
+              <div class="ui-diff__ln is-add"><i></i><i>142</i><span class="ui-diff__code" data-i="1"><span class="ui-diff__ind">  </span><span class="c">/// ...if it is unitary <mark class="ui-diff__w">to within 1e-9</mark>.</span></span></div>
+              <div class="ui-diff__ln is-add"><i></i><i>143</i><span class="ui-diff__code" data-i="1"><span class="ui-diff__ind">  </span><span class="c">/// Records the nearest exact unitary.</span></span></div>
+              <div class="ui-diff__ln"><i>144</i><i>145</i><span class="ui-diff__code" data-i="1"><span class="ui-diff__ind">  </span><span class="k">pub fn</span> <span class="f">unitary</span>(&amp;<span class="k">mut</span> self, c, t, gate) {</span></div>
+              <div class="ui-diff__ln"><i>145</i><i>146</i><span class="ui-diff__code" data-i="2"><span class="ui-diff__ind">    </span><span class="k">if</span> !gates::<span class="f">is_unitary</span>(&amp;gate, <span class="n">1e-9</span>) {</span></div>
+              <div class="ui-diff__ln"><i>146</i><i>147</i><span class="ui-diff__code" data-i="3"><span class="ui-diff__ind">      </span><span class="k">return</span> <span class="f">Err</span>(QsError::NotUnitary);</span></div>
+              <div class="ui-diff__ln"><i>147</i><i>148</i><span class="ui-diff__code" data-i="2"><span class="ui-diff__ind">    </span>}</span></div>
+              <div class="ui-diff__ln is-target" data-diff-target><i>148</i><i>149</i><span class="ui-diff__code" data-i="2"><span class="ui-diff__ind">    </span>self.<span class="f">add_gate</span>(c, t, <mark class="ui-diff__w">gate</mark>)</span></div>
+              <div class="ui-diff__sug" data-diff-sug><div class="ui-diff__ln is-add"><i></i><i>149</i><span class="ui-diff__code" data-i="2"><span class="ui-diff__ind">    </span>self.<span class="f">add_gate</span>(c, t, <mark class="ui-diff__w"><span class="f">nearest_unitary</span>(&amp;gate)</mark>)</span></div></div>
+              <div class="ui-diff__thread">
+                <div class="ui-diff__by">
+                  <span class="ui-avatar" data-tone="4">KW</span>
+                  <span class="ui-diff__name">kaiwave</span>
+                  <span class="ui-diff__time">#24</span>
+                  <span class="ui-spacer"></span>
+                  <span class="ui-diff__act" data-diff-act>
+                    <button class="ui-btn ui-btn--sm ui-diff__apply" type="button" tabindex="-1" data-diff-apply><span class="ui-diff__lbl">Apply suggestion</span><i class="ui-diff__spin" aria-hidden="true"></i></button>
+                    <span class="ui-chip ui-diff__done"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 8.4 2.6 2.6L12 5.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Applied</span>
+                  </span>
+                </div>
+                <div class="ui-diff__msg">2000 near-H gates now keep the norm within <code>1e-10</code>.</div>
+              </div>
+              <div class="ui-diff__ln"><i>149</i><i>150</i><span class="ui-diff__code" data-i="1"><span class="ui-diff__ind">  </span>}</span></div>
+              <div class="ui-diff__ln"><i>150</i><i>151</i><span class="ui-diff__code" data-i="0"></span></div>
+              <div class="ui-diff__ln"><i>151</i><i>152</i><span class="ui-diff__code" data-i="1"><span class="ui-diff__ind">  </span><span class="c">// Named gates.</span></span></div>
+            </div>
+          </div>
+        </div></div>
+        <div class="ly-float">
+          <div class="ly-float__row"><span class="ly-live">Merged</span><span>Pull request #24</span></div>
+          <div class="ly-float__title">Shipped in qsengine 1.1.1</div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="mission" aria-labelledby="mission-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-5 stack-6">
+          <h2 id="mission-h">Why qscommons builds quantum tools</h2>
+          <p class="t-lead">Good quantum software is often tied to one vendor's hardware, hard to install, or written for people who already know the field.</p>
+          <p>qscommons builds the other kind: tools that install in one line, run on the computer you have, and teach the physics in their documentation. qsengine has shipped five releases this way, from eleven gates in 1.0.0 to mid-circuit measurement in 1.1.0.</p>
+          <p><a class="link" href="https://qsengine.kaiwave.dev/docs/release-notes/">Read the release notes</a></p>
+        </div>
+        <div class="frame frame--split frame--lit frame--fill span-6 start-7">
+          <div class="stage stage--fade-b"><div class="at-corner to-edge" style="--ax:40px;--ay:40px">
+            <div class="ui ui-doc" data-ui="doc" role="img" aria-label="qsengine's release notes for version 1.1.0, with mid-circuit measurement marked">
+              <article class="ui-doc__page">
+                <div class="ui-doc__label">qsengine docs · Release notes</div>
+                <div class="ui-doc__title">Version 1.1.0</div>
+                <div class="ui-doc__text">QuantumCircuit(num_qubits, num_clbits) gives a circuit classical bits.</div>
+                <div class="ui-doc__text"><mark class="ui-doc__mark is-on">measure(qubit, clbit) measures a qubit at any point</mark>, and reset(qubit) returns it to |0⟩.</div>
+                <div class="ui-doc__text">Gates inside with qc.if_test(clbits, value): run only when the classical bits match.</div>
+                <div class="ui-doc__text">expectation("ZZI") returns the expectation value of a Pauli string.</div>
+                <div class="ui-doc__text">Recording a gate is about 2.3 times faster than in 1.0.2.</div>
+              </article>
+              <aside class="ui-doc__note ui-panel is-on" aria-live="polite">
+                <div class="ui-doc__kind"><span class="ui-doc__dot"></span><span data-doc-kind>New in 1.1.0</span></div>
+                <div class="ui-doc__msg" data-doc-msg>Mid-circuit measurement, enough for teleportation.</div>
+                <div class="ui-doc__where" data-doc-where>Tested in test_teleportation</div>
+              </aside>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="belief" data-moment="word-highlight" aria-labelledby="belief-h">
+    <div class="wrap">
+      <h2 class="sr" id="belief-h">What every quantum tool holds to</h2>
+      <p class="mo-wh__text">The first circuit a student runs and the last experiment in a paper should stand on the same ground: <strong>open</strong> code, tested against a reference, documented with output you can reproduce.</p>
+    </div>
+  </section>

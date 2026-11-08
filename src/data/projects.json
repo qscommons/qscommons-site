@@ -1,0 +1,67 @@
+{
+  "_about": "Every qscommons project, in the order the site lists them. Adding a project here adds its card to /projects/, its columns to the nav's Projects menu (the first two groups across all projects) and its link to the footer. `featured` marks the project the nav's release card and the home page lead with. Example lines are plain text; they are escaped when built.",
+  "projects": [
+    {
+      "id": "qsengine",
+      "name": "qsengine",
+      "featured": true,
+      "status": "Stable",
+      "version": "1.1.1",
+      "tagline": "A state-vector quantum simulator for Python.",
+      "summary": "A Rust core runs your circuits on every CPU core or any GPU, up to 30 qubits, with docs that start at bra-ket notation.",
+      "install": "pip install qsengine",
+      "links": [
+        { "label": "Documentation", "href": "https://qsengine.kaiwave.dev/docs/" },
+        { "label": "Source", "href": "https://github.com/qscommons/qsengine" },
+        { "label": "PyPI", "href": "https://pypi.org/project/qsengine/" }
+      ],
+      "example": {
+        "file": "bell.py",
+        "lang": "PY",
+        "chip": "1000 shots",
+        "mark": 4,
+        "note": "Only 00 and 11 come up: the qubits always agree.",
+        "lines": [
+          "import qsengine",
+          "",
+          "qc = qsengine.QuantumCircuit(2)",
+          "qc.h(0)",
+          "qc.cx(0, 1)",
+          "print(qc.run(shots=1000, seed=1))",
+          "# {'00': 513, '11': 487}"
+        ]
+      },
+      "menu": [
+        {
+          "label": "qsengine",
+          "links": [
+            { "label": "Overview", "href": "{{root}}projects/#qsengine", "note": "A quantum simulator for Python" },
+            { "label": "Install", "href": "https://qsengine.kaiwave.dev/docs/getting-started/", "note": "One wheel for CPython 3.9+" },
+            { "label": "Benchmarks", "href": "https://qsengine.kaiwave.dev/docs/benchmarks/", "note": "Against Qiskit Aer, 22 qubits" }
+          ]
+        },
+        {
+          "label": "Learn with it",
+          "links": [
+            { "label": "Qubits", "href": "https://qsengine.kaiwave.dev/docs/learn/qubits/", "note": "Bra-ket notation from zero" },
+            { "label": "Entanglement", "href": "https://qsengine.kaiwave.dev/docs/learn/entanglement/", "note": "Bell states, step by step" },
+            { "label": "Deutsch-Jozsa", "href": "https://qsengine.kaiwave.dev/docs/learn/deutsch-jozsa/", "note": "A whole algorithm, run" }
+          ]
+        }
+      ],
+      "release": {
+        "title": "qsengine 1.1.1",
+        "note": "Nearly-unitary matrices fixed",
+        "href": "https://qsengine.kaiwave.dev/docs/release-notes/",
+        "file": "unitary.py",
+        "mark": 2,
+        "hint": "Snaps a near-unitary matrix to the closest one.",
+        "lines": [
+          "qc = qsengine.QuantumCircuit(1)",
+          "qc.unitary(sqrt_x, 0)",
+          "qc.unitary(sqrt_x, 0)"
+        ]
+      }
+    }
+  ]
+}

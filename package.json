@@ -1,0 +1,11 @@
+{
+  "name": "qscommons-site",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node build.mjs && python3 -m http.server 4174 -d out"
+  },
+  "dependencies": {
+    "motion": "^14.10.1"
+  }
+}
