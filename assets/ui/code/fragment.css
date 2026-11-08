@@ -26,3 +26,8 @@
 .ui-code__hint .ui-dot { width: 6px; height: 6px; background: var(--u-ink); }
 .ui-code__hint.is-hidden { opacity: 0; }
 @media (max-width: 440px) { .ui-code { width: 100%; } .ui-code__pre { font-size: 13px; } }
+/* a blank line keeps its height (an empty block has none, and the line numbers would stack) */
+.ui-code__ln { min-height: 20px; min-height: 1lh; }
+/* a line with a note answers the pointer: a faint accent tick says so */
+.ui-code__ln.has-note:not(.is-mark)::after { opacity: .3; }
+.ui-code__ln.has-note:hover { cursor: default; }

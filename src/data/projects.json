@@ -1,10 +1,11 @@
 {
-  "_about": "Every qscommons project, in the order the site lists them. Each project gets its own screen on /projects/ (heading, summary, facts, links and its example as a code window), its link groups in the nav's Projects menu (the first two groups across all projects) and its source link in the footer. `featured` marks the project the nav's release card and the Projects page's opening lead with. Example lines are plain text; they are escaped when built. `version` is the one place a project's current version is written: the status line, the nav's release card and its title, the Projects page pill and every {{version:<id>}} token in a page follow it. Release `note` and `lines` describe that release, so update them with it.",
+  "_about": "Every qscommons project, in the order the site lists them. `page` is the project's own page (src/pages), linked from its screen on /projects/ and its card on the home page. Each project gets its own screen on /projects/ (heading, summary, facts, links and its example as a code window), its link groups in the nav's Projects menu (the first two groups across all projects) and its source link in the footer. `featured` marks the project the nav's release card and the Projects page's opening lead with. Example lines are plain text; they are escaped when built. `version` is the one place a project's current version is written: the status line, the nav's release card and its title, the Projects page pill and every {{version:<id>}} token in a page follow it. Release `note` and `lines` describe that release, so update them with it.",
   "projects": [
     {
       "id": "qsengine",
       "name": "qsengine",
       "featured": true,
+      "page": "{{root}}projects/qsengine/",
       "status": "Stable",
       "version": "1.1.1",
       "tagline": "A state-vector quantum simulator for Python.",
@@ -55,7 +56,7 @@
           "links": [
             {
               "label": "Overview",
-              "href": "{{root}}projects/#qsengine",
+              "href": "{{root}}projects/qsengine/",
               "note": "A quantum simulator for Python"
             },
             {

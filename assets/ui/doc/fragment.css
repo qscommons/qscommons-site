@@ -34,3 +34,5 @@
   .ui-doc { width: 100%; padding-right: 32px; }
   .ui-doc__note { width: 176px; }
 }
+/* a mark with a note answers the pointer */
+.ui-doc__mark.has-note { cursor: default; }

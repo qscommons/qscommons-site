@@ -1,9 +1,9 @@
-// doc: one mark per cycle: the note beside the page goes, the next mark sweeps in, its note slides up
-// beside it (about 3 s); then the next mark. The notes are the page's own: the first mark's is the note
-// as written in the markup, a later mark carries its own as data-kind, data-msg and data-where (or
-// opts.notes, in mark order). A mark with no note keeps a quiet underline and is never the current one,
-// so the script never shows a note the page did not write.
-import { loop } from '../ui.js';
+// doc: still until the pointer is on it. At rest the first noted mark is current with its note beside
+// it; the pointer on another noted mark makes that one current and moves the note to it; off the page,
+// the first again. The notes are the page's own: the first mark's is the note as written in the markup,
+// a later mark carries its own as data-kind, data-msg and data-where (or opts.notes, in mark order). A
+// mark with no note keeps a quiet underline and never answers, so the script never shows a note the
+// page did not write.
 
 export default function init(root, opts = {}) {
   const marks = [...root.querySelectorAll('.ui-doc__mark')];
@@ -37,21 +37,14 @@ export default function init(root, opts = {}) {
   }
   // one mark is current (the accent); the others keep a quiet ink underline
   const current = i => marks.forEach((m, k) => { m.classList.toggle('is-on', k === i); m.classList.toggle('is-seen', k !== i); });
-  let k = 0;
-  const still = () => { k = 0; current(live[0]); place(live[0]); note.classList.add('is-on'); };
-  // one cycle (2.74 s): two marks in turn. The note fades out, takes the next mark's words and place
-  // while hidden, and fades in as the mark's sweep ends; the second is held 0.38 s
-  return loop(root, async api => {
-    for (let n = 0; n < 2; n++) {
-      const i = live[++k % live.length];
-      note.classList.remove('is-on');
-      marks[i].classList.remove('is-on');
-      await api.wait(240);
-      current(i);
-      place(i);
-      await api.wait(220);
-      note.classList.add('is-on');
-      await api.wait(n < 1 ? 1440 : 380);
-    }
-  }, { still });
+  const show = i => { current(i); place(i); note.classList.add('is-on'); };
+  const rest = () => show(live[0]);
+  rest();
+  // a noted mark answers the pointer; off the page, the first mark again
+  for (const i of live) {
+    marks[i].classList.add('has-note');
+    marks[i].addEventListener('pointerenter', () => show(i));
+  }
+  root.addEventListener('pointerleave', rest);
+  return null;
 }
