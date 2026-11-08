@@ -1,0 +1,83 @@
+<!---
+title: Projects: open quantum tools maintained by qscommons
+description: Every open-source quantum tool qscommons maintains, one screen each, and how a new tool can join the organisation.
+path: /projects/
+current: projects
+head: <link rel="stylesheet" href="{{root}}assets/ui/doc/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/checklist/fragment.css"> ;  <link rel="modulepreload" href="{{root}}assets/moments/pinned-chapters/moment.js">
+--->
+<!-- plan: hero centred (pill and first button from the featured project, the featured project's docs as one
+     window on the lit frame, effect gradient-mesh held still); then one screen per project, built from
+     src/data/projects.json (the project-sections token); join: pinned-chapters moment, how a tool joins in 2 steps
+     (2 screens); close. -->
+
+  <section class="hero hero--centred" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text">
+      <div class="hero__c">
+        <a class="pill" href="{{featured-release-href}}"><span>{{featured-release}}</span><span class="muted">Read the release notes</span></a>
+        <h1 id="hero-h">Quantum tools maintained in public</h1>
+        <p class="hero__lead">Each one is MIT licensed, tested against an independent reference and documented with real output. qsengine is the first of them.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="#qsengine">See the projects</a><a class="btn btn--secondary" href="#join">Propose a project</a></div>
+      </div>
+      <div class="hero__window" data-fx="gradient-mesh" data-fx-seed="11" data-fx-params='{"speed":0}' data-fx-palette='{"bg":"#c5d3df","surface":"#e1e8ef","ink":"#1e2630","muted":"#4d5966","accent":"#3f6f96"}' role="img" aria-label="The qsengine documentation page on entanglement, with the Bell state's formula marked">
+        <div class="ly-piece" aria-hidden="true">
+          <div class="ui ui-doc" data-ui="doc">
+            <article class="ui-doc__page">
+              <div class="ui-doc__label">qsengine docs · Quantum physics</div>
+              <div class="ui-doc__title">Entanglement</div>
+              <div class="ui-doc__text">Two qubits are entangled when their joint state cannot be split into a state for each one. Measuring one then tells you about the other.</div>
+              <div class="ui-doc__text">A Hadamard on qubit 0 and a CNOT from 0 to 1 give <mark class="ui-doc__mark is-on">(|00⟩ + |11⟩)/√2</mark>, a Bell state. In qsengine it is two lines.</div>
+              <div class="ui-doc__text">Each qubit on its own looks like a fair coin. Only the pair is special, because the two results always agree.</div>
+              <div class="ui-doc__text">Running it 1000 times gives 513 of 00 and 487 of 11, and never 01 or 10.</div>
+            </article>
+            <aside class="ui-doc__note ui-panel is-on" aria-live="polite">
+              <div class="ui-doc__kind"><span class="ui-doc__dot"></span><span data-doc-kind>Real output</span></div>
+              <div class="ui-doc__msg" data-doc-msg>{'00': 513, '11': 487} with seed=1.</div>
+              <div class="ui-doc__where" data-doc-where>Run with qsengine 1.1</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+{{project-sections}}
+
+  <section class="section" id="join" data-moment="pinned-chapters" aria-labelledby="join-h">
+    <div class="wrap mo-pc__grid">
+      <div class="mo-pc__text">
+        <h2 id="join-h">How a quantum tool joins in 2 steps</h2>
+        <ol class="mo-pc__steps">
+          <li class="mo-pc__step">
+            <h3>Propose the quantum tool</h3><p>Open an issue that says what the tool does, who it is for and what reference you test it against.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit">
+              <div class="ui ui-panel ui-checks" data-ui="checklist" role="img" aria-label="What a proposal says: what the tool does, who it is for, its reference and its maintainer">
+                <div class="ui-checks__head"><div class="ui-title">A proposal says</div><span class="ui-spacer"></span><div class="ui-meta" data-checks-count>4 of 4</div></div>
+                <div class="ui-checks__bar"><i data-checks-bar style="--k:1"></i></div>
+                <ul class="ui-checks__list">
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">What the tool does</span></li>
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Who it is for</span></li>
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Its reference to test against</span></li>
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Who will maintain it</span></li>
+                </ul>
+              </div>
+            </figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3>Meet the 4 standards</h3><p>MIT licence, a one-line install, tests against a reference and docs that print real output.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit">
+              <div class="ui ui-doc" data-ui="doc" role="img" aria-label="The qscommons standard for a new tool, with the reference tests marked">
+                <article class="ui-doc__page">
+                  <div class="ui-doc__label">qscommons · Joining</div>
+                  <div class="ui-doc__title">What a new tool needs</div>
+                  <div class="ui-doc__text">It is released under the MIT licence and installs with one command.</div>
+                  <div class="ui-doc__text">Its results are <mark class="ui-doc__mark is-on">tested against an independent reference</mark>, the way qsengine checks every gate against NumPy.</div>
+                  <div class="ui-doc__text">Its documentation prints real output, and changes in the same pull request as the code.</div>
+                </article>
+              </div>
+            </figure>
+          </li>
+        </ol>
+      </div>
+      <div class="mo-pc__visuals frame"></div>
+    </div>
+  </section>

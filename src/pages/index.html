@@ -1,0 +1,113 @@
+<!---
+title: qscommons: open quantum computing tools for Python
+description: qscommons is a home for open, MIT-licensed quantum computing software, each tool tested against a reference and documented with real output.
+path: /
+current: home
+head: <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css">
+--->
+<!-- plan (1440x900 screens)
+  hero        triptych: the h1, a collage of qsengine's code and output as an example of a qscommons tool, the page's
+              one effect (grain-gradient), the main button. 1 screen
+  standard    four cards: what every qscommons tool holds to. 1 screen
+  projects    one card per project from projects.json (project-cards), each linking to its page. 1 screen
+  questions   faq split about qscommons itself. 1 screen
+  people      on the inverse ground: who maintains it, a hub diagram of the org. 1 screen
+  close       footer-statement, close-type: See the projects. 1 screen -->
+
+  <section class="hero hero--triptych" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="span-3">
+        <h1 id="hero-h">Open quantum tools for Python</h1>
+        <p class="hero__lead">qscommons is a home for open, MIT-licensed quantum computing software, built and reviewed in public on GitHub.</p>
+      </div>
+      <div class="ly-collage span-6 start-4" data-fx="grain-gradient" data-fx-seed="7" data-fx-params='{"speed":0.2}' data-fx-palette='{"bg":"#c5d3df","surface":"#e1e8ef","ink":"#1e2630","muted":"#4d5966","accent":"#3f6f96"}'  role="img" aria-label="qsengine, the first qscommons project, at work: a Bell-state program and its counts, a documentation page on the Bloch sphere, a circuit drawing and the 22-qubit benchmark">
+        <div class="ly-collage__set is-on">
+          <div class="ly-piece" style="left: 4%; top: 6%; width: 60%">
+            <div class="pc-head"><b>bell.py</b><span>python</span></div>
+            <div class="pc-body"><span><span class="k">import</span> qsengine</span>
+<span>qc = qsengine.<span class="f">QuantumCircuit</span>(<span class="n">2</span>)</span>
+<span>qc.<span class="f">h</span>(<span class="n">0</span>)</span>
+<span>qc.<span class="f">cx</span>(<span class="n">0</span>, <span class="n">1</span>)</span>
+<span><span class="f">print</span>(qc.<span class="f">run</span>(shots=<span class="n">1000</span>, seed=<span class="n">1</span>))</span></div>
+          </div>
+          <div class="ly-piece" style="left: 46%; top: 50%; width: 50%">
+            <div class="pc-head"><b>Output</b><span class="pc-chip">1000 shots</span></div>
+            <div class="pc-bars">
+              <div class="pc-bar is-top" style="--w: .513"><span>00</span><i></i><span>513</span></div>
+              <div class="pc-bar" style="--w: 0"><span>01</span><i></i><span>0</span></div>
+              <div class="pc-bar" style="--w: 0"><span>10</span><i></i><span>0</span></div>
+              <div class="pc-bar" style="--w: .487"><span>11</span><i></i><span>487</span></div>
+            </div>
+          </div>
+          <div class="ly-piece" style="left: 4%; top: 62%; width: 36%; height: 34%">
+            <div class="pc-head"><b>zsh</b></div>
+            <div class="pc-body"><span><span class="c">$</span> pip install qsengine</span>
+<span><span class="c">Installed</span> qsengine-{{version:qsengine}}</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="span-3 start-10 hero__cta"><a class="btn btn--primary" href="{{root}}projects/">See the projects</a></div>
+    </div></div>
+  </section>
+
+  <section class="section" id="standard" aria-labelledby="standard-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="standard-h">One standard for every quantum tool. <span class="muted">Whoever wrote it, whatever it simulates.</span></h2>
+      </div>
+      <div class="grid">
+        <article class="card span-3"><h3>Open</h3><p>MIT licensed, so it can be used in teaching, research and commercial work.</p></article>
+        <article class="card span-3"><h3>One-line install</h3><p>A single pip install, with nothing to compile.</p></article>
+        <article class="card span-3"><h3>Tested against a reference</h3><p>Results are checked against an independent implementation, not just against themselves.</p></article>
+        <article class="card span-3"><h3>Docs with real output</h3><p>Every example prints what the tool actually returns, and the docs change with the code.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--fit" id="projects" aria-labelledby="projects-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-4">
+          <h2 id="projects-h">The projects</h2>
+          <p>Each project is its own repository with its own maintainers, held to the same standard.</p>
+          <p class="muted">Software comes first. Learning sites, hardware development guides and research are next.</p>
+          <p><a class="link" href="{{root}}projects/">See all projects</a></p>
+        </div>
+        <div class="span-6 start-7">
+{{project-cards}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--fit" id="questions" aria-labelledby="questions-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-4">
+          <h2 id="questions-h">Questions</h2>
+          <p class="muted">What people ask about qscommons.</p>
+          <p><a class="link" href="https://github.com/qscommons">Ask on GitHub</a></p>
+        </div>
+        <div class="faq span-6 start-7">
+          <div class="faq__item"><h3>Are the tools free to use?</h3><p>Yes. Every project is under the MIT licence, so you can use it in teaching, research and commercial work.</p></div>
+          <div class="faq__item"><h3>Where do I start?</h3><p>With qsengine, the first project: <a class="link" href="{{root}}projects/qsengine/">see what it does</a>, then pip install qsengine.</p></div>
+          <div class="faq__item"><h3>Can I propose a project?</h3><p>Yes, whether it is a tool, a learning site, a hardware guide or research. Open an issue that says what it is and who it is for. It joins once it meets the same standard as every other project.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ground-inverse" id="people" aria-labelledby="people-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-5 stack-4">
+          <h2 id="people-h">qscommons maintainers and contributors</h2>
+          <p>{{maintainers-line}} Every change is reviewed in public on GitHub, open to anyone.</p>
+          <p><a class="link" href="{{root}}about/">Read why qscommons exists</a></p>
+        </div>
+        <div class="frame frame--split frame--fill span-6 start-7">
+          <div class="dg" data-dg-still data-diagram><script type="application/json">{"layout": "hub", "alt": "qscommons holds qsengine, with its docs and PyPI wheels, the qsengine website, built daily, and its GitHub issues and pull requests.", "center": {"label": "qscommons", "icon": "text:qs"}, "spokes": [{"label": "qsengine", "icon": "si:rust", "children": [{"label": "Docs", "icon": "ui:file-text"}, {"label": "Wheels", "icon": "si:pypi"}]}, {"label": "Website", "icon": "ui:globe", "children": [{"label": "Daily build", "icon": "ui:refresh-cw"}]}, {"label": "GitHub", "icon": "si:github", "children": [{"label": "Issues", "icon": "ui:message-square"}, {"label": "Pull requests", "icon": "ui:git-branch"}]}]}</script></div>
+        </div>
+      </div>
+    </div>
+  </section>

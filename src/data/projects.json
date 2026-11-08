@@ -1,0 +1,100 @@
+{
+  "_about": "Every qscommons project, in the order the site lists them. `page` is the project's own page (src/pages), linked from its screen on /projects/ and its card on the home page. Each project gets its own screen on /projects/ (heading, summary, facts, links and its example as a code window), its link groups in the nav's Projects menu (the first two groups across all projects) and its source link in the footer. `featured` marks the project the nav's release card and the Projects page's opening lead with. Example lines are plain text; they are escaped when built. `version` is the one place a project's current version is written: the status line, the nav's release card and its title, the Projects page pill and every {{version:<id>}} token in a page follow it. Release `note` and `lines` describe that release, so update them with it.",
+  "projects": [
+    {
+      "id": "qsengine",
+      "name": "qsengine",
+      "featured": true,
+      "page": "{{root}}projects/qsengine/",
+      "status": "Stable",
+      "version": "1.1.1",
+      "tagline": "A state-vector quantum simulator for Python.",
+      "summary": "A Rust core runs your circuits on every CPU core or any GPU, up to 30 qubits, with docs that start at bra-ket notation.",
+      "install": "pip install qsengine",
+      "links": [
+        {
+          "label": "Documentation",
+          "href": "https://qsengine.kaiwave.dev/docs/"
+        },
+        {
+          "label": "Source",
+          "href": "https://github.com/qscommons/qsengine"
+        },
+        {
+          "label": "PyPI",
+          "href": "https://pypi.org/project/qsengine/"
+        }
+      ],
+      "example": {
+        "file": "bell.py",
+        "lang": "PY",
+        "chip": "1000 shots",
+        "mark": 4,
+        "note": "Only 00 and 11 come up: the qubits always agree.",
+        "lines": [
+          "import qsengine",
+          "",
+          "qc = qsengine.QuantumCircuit(2)",
+          "qc.h(0)",
+          "qc.cx(0, 1)",
+          "",
+          "print(qc.run(shots=1000, seed=1))",
+          "# {'00': 513, '11': 487}",
+          "",
+          "print(qc.probabilities())",
+          "# 0.5 for 00, 0.5 for 11",
+          "",
+          "print(qc)",
+          "# q0: ──H──●──",
+          "#          │",
+          "# q1: ─────X──"
+        ]
+      },
+      "menu": [
+        {
+          "label": "qsengine",
+          "links": [
+            {
+              "label": "Overview",
+              "href": "{{root}}projects/qsengine/",
+              "note": "A quantum simulator for Python"
+            },
+            {
+              "label": "Install",
+              "href": "https://qsengine.kaiwave.dev/docs/getting-started/",
+              "note": "One wheel for CPython 3.9+"
+            },
+            {
+              "label": "Benchmarks",
+              "href": "https://qsengine.kaiwave.dev/docs/benchmarks/",
+              "note": "Against Qiskit Aer, 22 qubits"
+            }
+          ]
+        }
+      ],
+      "release": {
+        "note": "Nearly-unitary matrices fixed",
+        "href": "https://qsengine.kaiwave.dev/docs/release-notes/",
+        "file": "unitary.py",
+        "mark": 2,
+        "hint": "Snaps a near-unitary matrix to the closest one.",
+        "lines": [
+          "qc = qsengine.QuantumCircuit(1)",
+          "qc.unitary(sqrt_x, 0)",
+          "qc.unitary(sqrt_x, 0)"
+        ]
+      },
+      "heading": "qsengine, a quantum circuit simulator for Python",
+      "facts": [
+        "Up to 30 qubits",
+        "CPU and any GPU",
+        "Python 3.9+",
+        "MIT licence"
+      ],
+      "start": {
+        "label": "Get started with qsengine",
+        "href": "https://qsengine.kaiwave.dev/docs/getting-started/"
+      }
+    }
+  ]
+}

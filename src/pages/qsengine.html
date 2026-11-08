@@ -1,0 +1,247 @@
+<!---
+title: qsengine: a quantum circuit simulator for Python
+description: qsengine is qscommons' state-vector simulator: a Rust core that runs circuits on every CPU core or any GPU, tested against NumPy and installed with one command.
+path: /projects/qsengine/
+current: projects
+head: <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/window/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/terminal-run/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/stat/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/checklist/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/toggles/fragment.css">
+--->
+<!-- plan: hero split (what qsengine is, its Bell example on the lit ground); examples app-frame; what it is
+     built to (tests, GPU speed, backend choice, install: features-2x2); qsengine questions; close. -->
+
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>A qscommons project · version {{version:qsengine}}</p>
+        <h1 id="hero-h">qsengine, a quantum circuit simulator for Python</h1>
+        <p class="hero__lead">A Rust core runs your circuits on every CPU core or any GPU, up to 30 qubits. On a GPU it runs 22 qubits in 77 ms, and its docs start at bra-ket notation.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="https://qsengine.kaiwave.dev/docs/getting-started/">Get started</a><a class="btn btn--secondary" href="https://github.com/qscommons/qsengine">Source on GitHub</a></div>
+      </div>
+      <div class="hero__media frame--lit span-6 start-7">
+        <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:440px;--ax:max(40px, 50% - 220px);--ay:56px;--ay-sm:24px">
+{{example:qsengine}}
+        </div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="qsengine" aria-labelledby="qsengine-h">
+    <div class="wrap">
+      <div class="grid">
+        <h2 class="span-5" id="qsengine-h">Examples and their output</h2>
+        <div class="span-6 start-7 stack-4"><p>Build a circuit from gates in Python, then ask for counts or exact amplitudes. Every example in the documentation prints real output from qsengine 1.1.</p><p><a class="link" href="https://qsengine.kaiwave.dev/docs/examples/">Read the examples</a></p></div>
+      </div>
+      <div class="ui app fill" role="img" aria-label="The qsengine examples: Bell state, GHZ, rotation, teleportation and more, beside the open Bell-state program" data-ui-pause-host>
+        <div class="app__pane app__pane--list">
+          <div class="ui ui-panel ui-win" data-ui="window" data-open="Queued" data-work="Running" data-done="Done">
+            <div class="ui-win__bar">
+              <span class="ui-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="ui-win__crumb"><svg class="ui-brand" aria-hidden="true" viewBox="9 11.25 81.5 81.5"><circle cx="31" cy="42" r="17" fill="none" stroke="currentColor" stroke-width="10"/><rect x="43" y="42" width="10" height="42" fill="currentColor"/><polygon points="61,20 72.47,20 90.47,52 72.47,84 61,84 79,52" fill="currentColor"/></svg>Examples <i>/</i> <b>Queued</b></span>
+              <span class="ui-spacer"></span>
+              <span class="ui-win__search" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg><span class="ui-win__ph">Search</span><span class="ui-kbd">/</span></span>
+            </div>
+            <div class="ui-win__body">
+              <nav class="ui-win__side" aria-hidden="true">
+                <span class="ui-win__nav is-on"><svg class="ui-icon" viewBox="0 0 16 16"><path d="M2.5 9h3l1 1.5h3l1-1.5h3"/><path d="M2.5 9 4 3.5h8L13.5 9v3.5h-11z"/></svg>Examples<em>9</em></span>
+                <span class="ui-win__nav"><svg class="ui-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3l2 1.5"/></svg>Learn<em>6</em></span>
+                <span class="ui-win__nav"><svg class="ui-icon" viewBox="0 0 16 16"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg>Guide<em>3</em></span>
+                <span class="ui-win__label">Backends</span>
+                <span class="ui-win__nav"><span class="ui-win__hash">#</span>cpu</span>
+                <span class="ui-win__nav"><span class="ui-win__hash">#</span>gpu</span>
+              </nav>
+              <div class="ui-win__main">
+                <div class="ui-win__cols" aria-hidden="true"><span>Example</span><span>Circuit</span><span>Status</span><span>Shots</span></div>
+                <ul class="ui-win__rows">
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="1">BS</span><span class="ui-win__who">Bell state</span><span class="ui-win__sub">h, cx · 2 qubits</span><span class="ui-win__st" data-st>Queued</span><span class="ui-win__age">1000</span></li>
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="3">GH</span><span class="ui-win__who">GHZ state</span><span class="ui-win__sub">h, cx, cx · 3 qubits</span><span class="ui-win__st" data-st>Queued</span><span class="ui-win__age">exact</span></li>
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="4">RO</span><span class="ui-win__who">Rotation</span><span class="ui-win__sub">ry(π/3) · 1 qubit</span><span class="ui-win__st" data-st>Queued</span><span class="ui-win__age">1000</span></li>
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="2">TP</span><span class="ui-win__who">Teleportation</span><span class="ui-win__sub">3 qubits, 3 classical bits</span><span class="ui-win__st" data-st>Queued</span><span class="ui-win__age">1000</span></li>
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="5">DJ</span><span class="ui-win__who">Deutsch-Jozsa</span><span class="ui-win__sub">one oracle query</span><span class="ui-win__st is-done" data-st>Done</span><span class="ui-win__age">exact</span></li>
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="3">EV</span><span class="ui-win__who">Expectation</span><span class="ui-win__sub">Pauli strings ZZI and IZZ</span><span class="ui-win__st is-done" data-st>Done</span><span class="ui-win__age">exact</span></li>
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="1">MS</span><span class="ui-win__who">Measurement</span><span class="ui-win__sub">h, z, h · 1 qubit</span><span class="ui-win__st is-done" data-st>Done</span><span class="ui-win__age">exact</span></li>
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="4">BL</span><span class="ui-win__who">Bloch sphere</span><span class="ui-win__sub">rx(π/2) · 1 qubit</span><span class="ui-win__st is-done" data-st>Done</span><span class="ui-win__age">exact</span></li>
+                  <li class="ui-win__row" data-row><span class="ui-avatar" data-tone="2">BI</span><span class="ui-win__who">Bad input</span><span class="ui-win__sub">cx(1, 1) · ValueError</span><span class="ui-win__st is-done" data-st>Done</span><span class="ui-win__age">none</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="app__pane app__pane--open">
+          <div class="ui ui-panel ui-code" data-ui="code">
+            <div class="ui-code__tabs">
+              <span class="ui-code__tab is-on"><i class="ui-code__lang">PY</i>bell.py</span>
+              <span class="ui-code__tab"><i class="ui-code__lang">PY</i>ghz.py</span>
+              <span class="ui-spacer"></span>
+              <span class="ui-chip ui-chip--plain ui-code__chip" data-code-chip>1000 shots</span>
+            </div>
+            <pre class="ui-code__pre"><code><span class="ui-code__ln" data-n="1"><span class="k">import</span> qsengine</span>
+<span class="ui-code__ln" data-n="2"></span>
+<span class="ui-code__ln" data-n="3">qc = qsengine.<span class="f">QuantumCircuit</span>(<span class="n">2</span>)</span>
+<span class="ui-code__ln is-mark" data-n="4">qc.<span class="f">h</span>(<span class="n">0</span>)</span>
+<span class="ui-code__ln" data-n="5" data-note="Ties qubit 1 to qubit 0, making a Bell state.">qc.<span class="f">cx</span>(<span class="n">0</span>, <span class="n">1</span>)</span>
+<span class="ui-code__ln" data-n="6"></span>
+<span class="ui-code__ln" data-n="7" data-note="Prints {'00': 513, '11': 487}.">counts = qc.<span class="f">run</span>(shots=<span class="n">1000</span>, seed=<span class="n">1</span>)</span>
+<span class="ui-code__ln" data-n="8"><span class="f">print</span>(counts)</span>
+<span class="ui-code__ln" data-n="9"><span class="c"># {'00': 513, '11': 487}</span></span>
+<span class="ui-code__ln" data-n="10"></span>
+<span class="ui-code__ln" data-n="11"><span class="f">print</span>(qc.<span class="f">probabilities</span>())</span>
+<span class="ui-code__ln" data-n="12"><span class="c"># 0.5 for 00, 0.5 for 11</span></span>
+<span class="ui-code__ln" data-n="13"></span>
+<span class="ui-code__ln" data-n="14"><span class="f">print</span>(qc)</span>
+<span class="ui-code__ln" data-n="15"><span class="c"># q0: ──H──●──</span></span>
+<span class="ui-code__ln" data-n="16"><span class="c">#          │</span></span>
+<span class="ui-code__ln" data-n="17"><span class="c"># q1: ─────X──</span></span>
+<span class="ui-code__ln" data-n="18"></span>
+<span class="ui-code__ln" data-n="19"><span class="c"># the same circuit, each backend</span></span>
+<span class="ui-code__ln" data-n="20">cpu = qc.<span class="f">run</span>(backend=<span class="n">"cpu"</span>)</span>
+<span class="ui-code__ln" data-n="21">gpu = qc.<span class="f">run</span>(backend=<span class="n">"gpu"</span>)</span>
+<span class="ui-code__ln" data-n="22"></span>
+<span class="ui-code__ln" data-n="23"><span class="c"># three qubits: a GHZ state</span></span>
+<span class="ui-code__ln" data-n="24">ghz = qsengine.<span class="f">QuantumCircuit</span>(<span class="n">3</span>)</span>
+<span class="ui-code__ln" data-n="25">ghz.<span class="f">h</span>(<span class="n">0</span>)</span>
+<span class="ui-code__ln" data-n="26">ghz.<span class="f">cx</span>(<span class="n">0</span>, <span class="n">1</span>)</span>
+<span class="ui-code__ln" data-n="27">ghz.<span class="f">cx</span>(<span class="n">1</span>, <span class="n">2</span>)</span>
+<span class="ui-code__ln" data-n="28"><span class="f">print</span>(ghz.<span class="f">statevector</span>())</span></code></pre>
+            <div class="ui-code__hint" data-code-hint><span class="ui-dot"></span><span data-code-text>Puts qubit 0 in an equal superposition.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section g2" id="standards" aria-labelledby="standards-h">
+    <div class="wrap">
+      <div class="group">
+        <div class="section-head">
+          <h2 id="standards-h">How qsengine is tested and built. <span class="muted">Checked against NumPy, benchmarked on GPUs, with sensible defaults and a one-line install.</span></h2>
+        </div>
+        <div class="grid">
+          <article class="card card--row span-6 m-nolift">
+            <h3>Checks results against NumPy</h3>
+            <p>Each gate and random circuit is compared with a plain NumPy reference simulator, on the CPU and the GPU.</p>
+            <div class="panel panel--flush">
+              <div class="stage"><div class="at-rise fit" style="--fit-max:440px;--ax:max(32px, 50% - 220px);--ay:36px;--ay-sm:24px">
+                <div class="ui ui-panel ui-term" data-ui="terminal-run">
+                  <div class="ui-term__head">
+                    <span class="ui-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span class="ui-term__title">qscommons/qsengine</span>
+                    <span class="ui-meta">zsh</span>
+                    <span class="ui-spacer"></span>
+                    <span class="ui-chip ui-chip--plain ui-term__branch"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="3.5" r="1.5"/><circle cx="5" cy="12.5" r="1.5"/><circle cx="11" cy="5.5" r="1.5"/><path d="M5 5v6M11 7c0 2.6-6 1.8-6 4"/></svg>main</span>
+                  </div>
+                  <div class="ui-term__screen" data-term-screen>
+                    <div class="ui-term__track" data-term-track>
+                      <div class="ui-term__ln ui-term__cmd"><span class="ui-term__cwd">~/<span class="ui-term__up">qscommons/</span>qsengine</span><span class="ui-term__sig">$</span><span class="ui-term__typed" data-term-cmd>pytest -q</span></div>
+                      <div class="ui-term__ln ui-term__meter" data-term-out data-term-meter><span class="ui-term__bar" style="--p:1"><i></i></span><span class="ui-term__count" data-term-count>4 of 4 checks</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">every_gate_against_numpy</span><span class="ui-term__n">cpu, gpu</span><span class="ui-term__t">passed</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">random_circuits_against_numpy</span><span class="ui-term__n">cpu, gpu</span><span class="ui-term__t">passed</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">expectation_against_numpy</span><span class="ui-term__n">cpu, gpu</span><span class="ui-term__t">passed</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">teleportation</span><span class="ui-term__n">cpu, gpu</span><span class="ui-term__t">passed</span></div>
+                      <div class="ui-term__ln ui-term__gap" data-term-out aria-hidden="true"></div>
+                      <div class="ui-term__ln ui-term__sum" data-term-out><span class="ui-term__key">Reference</span><span class="ui-term__val">NumPy</span><span class="ui-term__dim">(float64)</span></div>
+                      <div class="ui-term__ln ui-term__sum" data-term-out><span class="ui-term__key">Backends</span><span class="ui-term__val">cpu, gpu</span><span class="ui-term__dim">(both)</span></div>
+                      <div class="ui-term__ln ui-term__done" data-term-out data-term-done><span class="ui-term__ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.3 2.4 2.4 4.6-5"/></svg></span><b>Done</b><span class="ui-term__dim">all passed</span></div>
+                      <div class="ui-term__ln ui-term__cmd" data-term-next><span class="ui-term__cwd">~/<span class="ui-term__up">qscommons/</span>qsengine</span><span class="ui-term__sig">$</span><span class="ui-term__typed"></span><i class="ui-term__caret" aria-hidden="true"></i></div>
+                    </div>
+                  </div>
+                </div>
+              </div></div>
+            </div>
+          </article>
+          <article class="card card--row span-6 m-nolift">
+            <h3>Runs 22 qubits in 77 ms</h3>
+            <p>On any vendor's GPU through Vulkan, DirectX 12 or Metal, 5.6 times faster than Qiskit Aer on the same circuit.</p>
+            <div class="panel panel--flush">
+              <div class="stage stage--fade-b"><div class="at-rise fit to-edge" style="--fit-max:420px;--ax:max(32px, 50% - 210px);--ay:36px;--ay-sm:24px">
+                <div class="ui ui-panel ui-stat" data-ui="stat" data-values="1.26,1.34,1.35,1.73,1.43,1.48,1.61,2.10,3.57,6.21,12.4,26.3,41.4,77.0" data-prev="1.26,1.34,1.35,1.73,1.43,1.48,1.61,2.10,3.57,6.21,12.4,26.3,41.4,77.0">
+                  <div class="ui-stat__head">
+                    <div class="ui-stat__top">
+                      <span class="ui-stat__label">GPU time, 1000 shots</span>
+                      <span class="ui-stat__range">9 to 22 qubits</span>
+                    </div>
+                    <div class="ui-stat__line">
+                      <span class="ui-stat__num" data-stat-num>77 ms</span>
+                      <span class="ui-chip ui-chip--plain ui-stat__delta">5.6× faster</span>
+                      <span class="ui-stat__sub">than Qiskit Aer at 22</span>
+                    </div>
+                  </div>
+                  <div class="ui-stat__chart">
+                    <svg class="ui-stat__svg" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+                      <path class="ui-stat__grid" d="M0 30.5H400M0 60.5H400M0 90.5H400"/>
+                      <path class="ui-stat__cover" fill-rule="evenodd" d=""/>
+                      <g class="ui-stat__bars"></g>
+                    </svg>
+                    <div class="ui-stat__axis" aria-hidden="true"><span>9 qubits</span><span>16</span><span>22</span></div>
+                  </div>
+                </div>
+              </div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card card--row span-6 m-nolift">
+          <h3>Picks the CPU or GPU for you</h3>
+          <p>With backend="auto", small circuits run in 64-bit on every CPU core and large ones move to the GPU.</p>
+          <div class="panel panel--flush">
+            <div class="stage stage--fade-b"><div class="at-corner to-edge" style="--ax:32px;--ay:40px;--ay-sm:24px">
+              <div class="ui ui-panel ui-toggles" data-ui="toggles">
+                <div class="ui-head">
+                  <svg class="ui-icon ui-toggles__ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8 13 4v3.6c0 3-2.1 5.4-5 6.6-2.9-1.2-5-3.6-5-6.6V4z"/><path d="m5.8 8 1.6 1.6 3-3.2"/></svg>
+                  <div class="ui-title">backend="auto"</div>
+                  <span class="ui-spacer"></span>
+                  <div class="ui-meta" data-tg-count>3 of 4 on</div>
+                </div>
+                <ul class="ui-toggles__list">
+                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">GPU from 14 qubits</span><span class="ui-tg__sub">Below that, every CPU core</span></span><button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="GPU from 14 qubits"><i></i></button></li>
+                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Fall back to the CPU</span><span class="ui-tg__sub">When no GPU or driver works</span></span><button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Fall back to the CPU"><i></i></button></li>
+                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">Mid-circuit runs on the CPU</span><span class="ui-tg__sub">Below 20 qubits</span></span><button class="ui-switch is-on" type="button" role="switch" aria-checked="true" aria-label="Mid-circuit runs on the CPU"><i></i></button></li>
+                  <li class="ui-tg"><span class="ui-tg__text"><span class="ui-tg__label">64-bit at every size</span><span class="ui-tg__sub">Pass backend="cpu"</span></span><button class="ui-switch" type="button" role="switch" aria-checked="false" aria-label="64-bit at every size"><i></i></button></li>
+                </ul>
+              </div>
+            </div></div>
+          </div>
+        </article>
+        <article class="card card--row span-6 m-nolift">
+          <h3>Installs with one command</h3>
+          <p>One wheel per platform covers CPython 3.9 and newer, so there is nothing to compile and NumPy comes with it.</p>
+          <div class="panel panel--flush">
+            <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:340px;--ax:max(32px, 50% - 170px);--ay:40px;--ay-sm:24px">
+              <div class="ui ui-panel ui-checks" data-ui="checklist">
+                <div class="ui-checks__head">
+                  <div class="ui-title">Your first circuit</div>
+                  <span class="ui-spacer"></span>
+                  <div class="ui-meta" data-checks-count>2 of 5</div>
+                </div>
+                <div class="ui-checks__bar"><i data-checks-bar style="--k:0.4"></i></div>
+                <ul class="ui-checks__list">
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">pip install qsengine</span></li>
+                  <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">import qsengine</span></li>
+                  <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Build a Bell state</span></li>
+                  <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Run 1000 shots</span></li>
+                  <li class="ui-check"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label">Read the counts</span></li>
+                </ul>
+              </div>
+            </div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="questions" aria-labelledby="questions-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-4">
+          <h2 id="questions-h">qsengine questions</h2>
+          <p class="muted">What people ask before they install it.</p>
+          <p><a class="link" href="https://github.com/qscommons/qsengine/issues">Ask on GitHub</a></p>
+        </div>
+        <div class="faq span-6 start-7">
+          <div class="faq__item"><h3>Does qsengine need a GPU?</h3><p>No. qsengine runs on any CPU and uses a GPU when one is present, through Vulkan, DirectX 12 or Metal.</p></div>
+          <div class="faq__item"><h3>How large a circuit can qsengine run?</h3><p>Up to 30 qubits. Memory doubles with every qubit: 20 qubits take 16 MiB and 30 take 16 GiB.</p></div>
+          <div class="faq__item"><h3>Which Python versions work?</h3><p>CPython 3.9 and newer, with one wheel per platform.</p></div>
+          <div class="faq__item"><h3>How do I contribute?</h3><p>Open an issue for a bug or an idea, or send a pull request. The contributing guide covers running the tests and updating the docs. <a class="link" href="https://github.com/qscommons/qsengine/blob/main/CONTRIBUTING.md">Read the contributing guide</a></p></div>
+        </div>
+      </div>
+    </div>
+  </section>

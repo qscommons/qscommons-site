@@ -1,0 +1,14 @@
+{
+  "name": "qscommons-site",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node build.mjs && python3 -m http.server 4174 -d out"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^3.1.1",
+    "motion": "^14.10.1",
+    "preact": "^11.2.0",
+    "preact-render-to-string": "^6.8.2"
+  }
+}
