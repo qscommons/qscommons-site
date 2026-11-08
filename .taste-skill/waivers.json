@@ -1,4 +1,0 @@
-[
-  { "check": "container-edges", "target": "div.mo-lc__stage", "reason": "the stage is inserted at run time by the kit's own line-carries-colour moment.js beside the section's .wrap; the page's markup is one .wrap" },
-  { "check": "container-edges", "target": "div.mo-io__stage", "reason": "the stage is inserted at run time by the kit's own iris-opens moment.js beside the section's .wrap; the page's markup is one .wrap" }
-]
