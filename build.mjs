@@ -29,6 +29,10 @@ function frontMatter(src, file) {
 // ---- the projects, from src/data/projects.json (one entry per project) ----
 const { projects } = JSON.parse(read("src/data/projects.json"));
 const featured = projects.find((p) => p.featured) || projects[0];
+// A release's title defaults to "<name> <version>", so a new version is one change: `version` in projects.json.
+for (const p of projects) if (p.release && !p.release.title) p.release.title = `${p.name} ${p.version}`;
+// {{version:<id>}} anywhere in a page or partial becomes that project's current version.
+const versionTokens = Object.fromEntries(projects.map((p) => [`version:${p.id}`, p.version]));
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 // A kit `code` fragment (assets/ui/code) holding plain lines, one of them marked.
@@ -107,6 +111,7 @@ function maintainersList() {
 const n = maintainers.length;
 
 const generated = {
+  ...versionTokens,
   "projects-menu": projectsMenu(),
   "projects-footer": projectsFooter(),
   "project-sections": projectSections(),
@@ -140,7 +145,7 @@ for (const file of readdirSync("src/pages").filter((f) => f.endsWith(".html"))) 
     .replaceAll("{{description}}", meta.description)
     .replaceAll("{{extra-head}}", meta.head ? meta.head.split(" ; ").join("\n") : "")
     .replaceAll("{{root}}", root);
-  const left = html.match(/\{\{[a-z-]+\}\}/);
+  const left = html.match(/\{\{[a-z:-]+\}\}/);
   if (left) throw new Error(`${file}: ${left[0]} was never filled`);
   const dir = path.join(OUT, meta.path);
   mkdirSync(dir, { recursive: true });

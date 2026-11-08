@@ -1,5 +1,5 @@
 {
-  "_about": "Every qscommons project, in the order the site lists them. Each project gets its own screen on /projects/ (heading, summary, facts, links and its example as a code window), its link groups in the nav's Projects menu (the first two groups across all projects) and its source link in the footer. `featured` marks the project the nav's release card and the Projects page's opening lead with. Example lines are plain text; they are escaped when built.",
+  "_about": "Every qscommons project, in the order the site lists them. Each project gets its own screen on /projects/ (heading, summary, facts, links and its example as a code window), its link groups in the nav's Projects menu (the first two groups across all projects) and its source link in the footer. `featured` marks the project the nav's release card and the Projects page's opening lead with. Example lines are plain text; they are escaped when built. `version` is the one place a project's current version is written: the status line, the nav's release card and its title, the Projects page pill and every {{version:<id>}} token in a page follow it. Release `note` and `lines` describe that release, so update them with it.",
   "projects": [
     {
       "id": "qsengine",
@@ -72,7 +72,6 @@
         }
       ],
       "release": {
-        "title": "qsengine 1.1.1",
         "note": "Nearly-unitary matrices fixed",
         "href": "https://qsengine.kaiwave.dev/docs/release-notes/",
         "file": "unitary.py",
