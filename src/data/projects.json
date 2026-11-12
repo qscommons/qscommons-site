@@ -14,7 +14,7 @@
       "links": [
         {
           "label": "Documentation",
-          "href": "https://qsengine.kaiwave.dev/docs/"
+          "href": "https://qsengine.qscommons.org/docs/"
         },
         {
           "label": "Source",
@@ -61,12 +61,17 @@
             },
             {
               "label": "Install",
-              "href": "https://qsengine.kaiwave.dev/docs/getting-started/",
+              "href": "{{root}}projects/qsengine/#install",
               "note": "One wheel for CPython 3.9+"
             },
             {
+              "label": "Documentation",
+              "href": "https://qsengine.qscommons.org/docs/",
+              "note": "Guides, API and tutorials"
+            },
+            {
               "label": "Benchmarks",
-              "href": "https://qsengine.kaiwave.dev/docs/benchmarks/",
+              "href": "https://qsengine.qscommons.org/docs/benchmarks/",
               "note": "Against Qiskit Aer, 22 qubits"
             }
           ]
@@ -74,7 +79,7 @@
       ],
       "release": {
         "note": "Nearly-unitary matrices fixed",
-        "href": "https://qsengine.kaiwave.dev/docs/release-notes/",
+        "href": "https://qsengine.qscommons.org/docs/release-notes/",
         "file": "unitary.py",
         "mark": 2,
         "hint": "Snaps a near-unitary matrix to the closest one.",
@@ -93,7 +98,7 @@
       ],
       "start": {
         "label": "Get started with qsengine",
-        "href": "https://qsengine.kaiwave.dev/docs/getting-started/"
+        "href": "https://qsengine.qscommons.org/docs/getting-started/"
       }
     }
   ]

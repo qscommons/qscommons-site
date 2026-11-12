@@ -141,3 +141,8 @@ main > .section.section--fit > .wrap > .fill { flex: none; }
 main > .section.section--fit:first-child { padding-top: calc(var(--padt) + var(--s-7, 48px)); }
 .article__crumb a { color: inherit; text-decoration: none; }
 .article__crumb a:hover { color: var(--accent); }
+
+/* ---- install command on project pages: copies on click ---- */
+.install { font-family: var(--font-mono); gap: var(--s-3); }
+.install code { font: inherit; }
+.install__hint { font: 500 var(--t-small)/1 var(--font-text); color: var(--muted); }
