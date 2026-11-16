@@ -100,6 +100,81 @@
         "label": "Get started with qsengine",
         "href": "https://qsengine.qscommons.org/docs/getting-started/"
       }
+    },
+    {
+      "id": "quantum-academy",
+      "name": "Quantum Academy",
+      "page": "{{root}}projects/quantum-academy/",
+      "status": "Draft",
+      "tagline": "Free lessons in quantum physics and computing.",
+      "summary": "Quantum Academy, by qscommons, teaches quantum physics and quantum computing from the ground up. It starts where a first-year course does, with vectors, matrices and the states of one qubit, and builds towards measurement, entanglement and the algorithms that use them.",
+      "links": [
+        {
+          "label": "Lessons",
+          "href": "https://academy.qscommons.org/"
+        },
+        {
+          "label": "Source",
+          "href": "https://github.com/qscommons/Quantum-Academy"
+        }
+      ],
+      "example": {
+        "file": "qubits.py",
+        "lang": "PY",
+        "chip": "1000 shots",
+        "mark": 4,
+        "note": "Equal amplitudes, so 0 and 1 each come up about half the time.",
+        "lines": [
+          "import qsengine",
+          "",
+          "qc = qsengine.QuantumCircuit(1)",
+          "qc.h(0)",
+          "",
+          "print(qc.statevector())",
+          "# [0.70710678+0.j 0.70710678+0.j]",
+          "",
+          "print(qc.run(shots=1000, seed=3))",
+          "# {'0': 493, '1': 507}"
+        ]
+      },
+      "menu": [
+        {
+          "label": "Quantum Academy",
+          "links": [
+            {
+              "label": "Overview",
+              "href": "{{root}}projects/quantum-academy/",
+              "note": "Free quantum lessons"
+            },
+            {
+              "label": "Start with qubits",
+              "href": "https://academy.qscommons.org/qubits/",
+              "note": "The first lesson"
+            },
+            {
+              "label": "All lessons",
+              "href": "https://academy.qscommons.org/",
+              "note": "48 lessons in 7 parts"
+            },
+            {
+              "label": "Write a lesson",
+              "href": "https://github.com/qscommons/Quantum-Academy/blob/main/lessons/README.md",
+              "note": "Markdown, checked in CI"
+            }
+          ]
+        }
+      ],
+      "heading": "Quantum Academy, free lessons in quantum physics and computing",
+      "facts": [
+        "48 lessons in 7 parts",
+        "Every example run in CI",
+        "Free",
+        "MIT licence"
+      ],
+      "start": {
+        "label": "Start with qubits",
+        "href": "https://academy.qscommons.org/qubits/"
+      }
     }
   ]
 }

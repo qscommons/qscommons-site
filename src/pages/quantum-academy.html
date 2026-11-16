@@ -1,0 +1,130 @@
+<!---
+title: Quantum Academy: free lessons in quantum physics and computing
+description: Quantum Academy, by qscommons, teaches quantum physics and quantum computing from the ground up, from vectors and one qubit to entanglement and the algorithms that use it.
+path: /projects/quantum-academy/
+current: projects
+head: <link rel="stylesheet" href="{{root}}assets/ui/code/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/terminal-run/fragment.css"> ; <link rel="stylesheet" href="{{root}}assets/ui/doc/fragment.css">
+--->
+<!-- plan: hero split (what Quantum Academy is, its first qubit example on the lit ground); the seven parts;
+     how a lesson is written and checked (two cards); Quantum Academy questions. Same shape as qsengine.html. -->
+
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>A qscommons project · draft</p>
+        <h1 id="hero-h">Quantum Academy, free lessons in quantum physics and computing</h1>
+        <p class="hero__lead">Quantum Academy teaches quantum physics and quantum computing from the ground up. It starts where a first-year course does, with vectors, matrices and the states of one qubit, and builds towards measurement, entanglement and the algorithms that use them.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="https://academy.qscommons.org/qubits/">Start with qubits</a><a class="btn btn--secondary" href="https://github.com/qscommons/Quantum-Academy">Source on GitHub</a></div>
+        <p class="hero__proof">All 48 lessons are listed on the <a class="link" href="https://academy.qscommons.org/">Quantum Academy contents page</a>.</p>
+      </div>
+      <div class="hero__media frame--lit span-6 start-7">
+        <div class="stage stage--fade-b"><div class="at-rise fit" style="--fit-max:440px;--ax:max(40px, 50% - 220px);--ay:56px;--ay-sm:24px">
+{{example:quantum-academy}}
+        </div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="parts" aria-labelledby="parts-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-4">
+          <h2 id="parts-h">Seven parts, in reading order</h2>
+          <p class="muted">Part 0 is the linear algebra the rest is written in: skip it if you know it, and come back when a lesson links to it. Parts 1 and 6 are context and can be read in any order.</p>
+          <p><a class="link" href="https://academy.qscommons.org/">See every lesson</a></p>
+        </div>
+        <div class="faq span-6 start-7">
+          <div class="faq__item"><h3>0. Maths foundations · 13 lessons</h3><p>Complex numbers, vector spaces, inner products, matrices, eigenvalues, tensor products and probability, each with quantum examples.</p></div>
+          <div class="faq__item"><h3>1. Why quantum? · 3 lessons</h3><p>Light in quanta, matter waves, atoms and spin: the experiments that forced the theory.</p></div>
+          <div class="faq__item"><h3>2. The postulates · 9 lessons</h3><p>Qubits and bra-ket notation, observables, measurement, time evolution, uncertainty and entanglement.</p></div>
+          <div class="faq__item"><h3>3. Qubits and circuits · 6 lessons</h3><p>The Bloch sphere, single- and multi-qubit gates, interference and teleportation.</p></div>
+          <div class="faq__item"><h3>4. Algorithms · 6 lessons</h3><p>Deutsch-Jozsa, Bernstein-Vazirani, Simon, Grover, the quantum Fourier transform and phase estimation.</p></div>
+          <div class="faq__item"><h3>5. Wave mechanics · 8 lessons</h3><p>Wavefunctions, the Schrödinger equation, the particle in a box, tunnelling and the harmonic oscillator.</p></div>
+          <div class="faq__item"><h3>6. Many particles · 3 lessons</h3><p>Counting states, spins in a field and the Einstein solid.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="checked" aria-labelledby="checked-h">
+    <div class="wrap">
+      <div class="group">
+        <div class="section-head">
+          <h2 id="checked-h">How a lesson is written and checked. <span class="muted">Plain Markdown with maths, and every example run in CI against a pinned qsengine.</span></h2>
+        </div>
+        <div class="grid">
+          <article class="card card--row span-6 m-nolift">
+            <h3>Every printed output is checked</h3>
+            <p>CI runs each lesson's code, top to bottom, and fails if what it prints differs from the page by one character.</p>
+            <div class="panel panel--flush">
+              <div class="stage"><div class="at-rise fit" style="--fit-max:440px;--ax:max(32px, 50% - 220px);--ay:36px;--ay-sm:24px">
+                <div class="ui ui-panel ui-term" data-ui="terminal-run">
+                  <div class="ui-term__head">
+                    <span class="ui-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span class="ui-term__title">qscommons/Quantum-Academy</span>
+                    <span class="ui-meta">zsh</span>
+                    <span class="ui-spacer"></span>
+                    <span class="ui-chip ui-chip--plain ui-term__branch"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="3.5" r="1.5"/><circle cx="5" cy="12.5" r="1.5"/><circle cx="11" cy="5.5" r="1.5"/><path d="M5 5v6M11 7c0 2.6-6 1.8-6 4"/></svg>main</span>
+                  </div>
+                  <div class="ui-term__screen" data-term-screen>
+                    <div class="ui-term__track" data-term-track>
+                      <div class="ui-term__ln ui-term__cmd"><span class="ui-term__cwd">~/<span class="ui-term__up">qscommons/</span>Quantum-Academy</span><span class="ui-term__sig">$</span><span class="ui-term__typed" data-term-cmd>npm run check</span></div>
+                      <div class="ui-term__ln ui-term__meter" data-term-out data-term-meter><span class="ui-term__bar" style="--p:1"><i></i></span><span class="ui-term__count" data-term-count>4 of 4 lessons</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">qubits.md</span><span class="ui-term__n">qsengine</span><span class="ui-term__t">passed</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">entanglement.md</span><span class="ui-term__n">qsengine</span><span class="ui-term__t">passed</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">algorithms/grover.md</span><span class="ui-term__n">qsengine</span><span class="ui-term__t">passed</span></div>
+                      <div class="ui-term__ln ui-term__log" data-term-out data-term-step><svg class="ui-term__tick" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.4 2.8 2.8 6.2-6.4"/></svg><span class="ui-term__path">wave-mechanics/tunnelling.md</span><span class="ui-term__n">NumPy</span><span class="ui-term__t">passed</span></div>
+                      <div class="ui-term__ln ui-term__gap" data-term-out aria-hidden="true"></div>
+                      <div class="ui-term__ln ui-term__sum" data-term-out><span class="ui-term__key">Pinned</span><span class="ui-term__val">requirements.txt</span><span class="ui-term__dim">(qsengine, NumPy)</span></div>
+                      <div class="ui-term__ln ui-term__done" data-term-out data-term-done><span class="ui-term__ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4.5 8.3 2.4 2.4 4.6-5"/></svg></span><b>Done</b><span class="ui-term__dim">every output matches</span></div>
+                      <div class="ui-term__ln ui-term__cmd" data-term-next><span class="ui-term__cwd">~/<span class="ui-term__up">qscommons/</span>Quantum-Academy</span><span class="ui-term__sig">$</span><span class="ui-term__typed"></span><i class="ui-term__caret" aria-hidden="true"></i></div>
+                    </div>
+                  </div>
+                </div>
+              </div></div>
+            </div>
+          </article>
+          <article class="card card--row span-6 m-nolift">
+            <h3>Maths rendered at build time</h3>
+            <p>Lessons are plain Markdown that reads the same on GitHub. Formulas are rendered with KaTeX, and a broken one fails the build.</p>
+            <div class="panel panel--flush">
+              <div class="stage stage--fade-b"><div class="at-rise fit to-edge" style="--fit-max:440px;--ax:max(32px, 50% - 220px);--ay:36px;--ay-sm:24px">
+                <div class="ui ui-doc" data-ui="doc" role="img" aria-label="The Quantum Academy lesson on entanglement, with the Bell state's formula marked">
+                  <article class="ui-doc__page">
+                    <div class="ui-doc__label">Quantum Academy · The postulates</div>
+                    <div class="ui-doc__title">Entanglement</div>
+                    <div class="ui-doc__text">A Hadamard on qubit 0 and a CNOT from 0 to 1 give <mark class="ui-doc__mark is-on">(|00⟩ + |11⟩)/√2</mark>, a Bell state.</div>
+                    <div class="ui-doc__text">Run 1000 times, it gives 513 of 00 and 487 of 11, and never 01 or 10.</div>
+                    <div class="ui-doc__text">Its probabilities cannot be split into one list for each qubit.</div>
+                  </article>
+                  <aside class="ui-doc__note ui-panel is-on" aria-live="polite">
+                    <div class="ui-doc__kind"><span class="ui-doc__dot"></span><span data-doc-kind>Checked in CI</span></div>
+                    <div class="ui-doc__msg" data-doc-msg>{'00': 513, '11': 487} with seed=1.</div>
+                    <div class="ui-doc__where" data-doc-where>Against the pinned qsengine</div>
+                  </aside>
+                </div>
+              </div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="questions" aria-labelledby="questions-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-4">
+          <h2 id="questions-h">Quantum Academy questions</h2>
+          <p class="muted">What people ask before they start.</p>
+          <p><a class="link" href="https://github.com/qscommons/Quantum-Academy/issues">Ask on GitHub</a></p>
+        </div>
+        <div class="faq span-6 start-7">
+          <div class="faq__item"><h3>What do I need to know first?</h3><p>Nothing beyond school maths. Part 0 teaches the complex numbers, linear algebra and probability the rest uses.</p></div>
+          <div class="faq__item"><h3>Is it free?</h3><p>Yes. Every lesson is free to read, and the source is MIT licensed.</p></div>
+          <div class="faq__item"><h3>What is it based on?</h3><p>University syllabi for quantum and thermal physics and linear algebra, with first-year physics, complex numbers and probability where they supply a prerequisite.</p></div>
+          <div class="faq__item"><h3>How do I contribute?</h3><p>Lessons are Markdown files in the repository. Add one to the contents list, put what its code prints in an output block, and CI checks it. <a class="link" href="https://github.com/qscommons/Quantum-Academy/blob/main/lessons/README.md">Read how to write a lesson</a></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
